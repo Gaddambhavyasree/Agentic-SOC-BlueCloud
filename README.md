@@ -29,6 +29,26 @@ Full panel-by-panel detail: [`docs/DASHBOARD-CATALOG.md`](docs/DASHBOARD-CATALOG
 
 ---
 
+## Screenshots
+
+Captured from the live instance by `scripts/capture-screenshots.js` (headless Chrome via playwright-core).
+
+| SOC Overview | Threat Detection |
+|---|---|
+| ![SOC Overview](docs/screenshots/adgszzq__soc-overview.png) | ![Threat Detection](docs/screenshots/adsf5p4__threat-detection.png) |
+
+| File Integrity | Vulnerabilities |
+|---|---|
+| ![File Integrity](docs/screenshots/ad65mdz__file-integrity.png) | ![Vulnerabilities](docs/screenshots/ad4g2vm__vulnerabilities.png) |
+
+| Brute Force & Active Response | Configuration Assessment |
+|---|---|
+| ![Brute Force](docs/screenshots/adl6mwj__brute-force-and-active-response.png) | ![Configuration Assessment](docs/screenshots/adbz577__configuration-assessment.png) |
+
+> **A screenshot is rasterised telemetry.** Host names, source IPs and rule text are baked into the pixels and cannot be sanitised afterwards — unlike the JSON evidence, which `scripts/sanitize.js` can clean. That is why the screenshots are the one artefact in this repo that is *not* sanitised. Fine for a private internal repo; blur or drop them before publishing outside the organisation.
+
+---
+
 ## Repository layout
 
 ```
@@ -52,6 +72,13 @@ grafana-soc-dashboards/
 │   └── dashboards/                   # provider.yaml + one dashboard file per dashboard
 ├── assets/
 │   └── banner.png                    # branding image the header panels reference
+├── docs/
+│   ├── screenshots/                  # PNG capture of each dashboard (live telemetry - not sanitised)
+│   ├── WORKSTREAM-AUDIT.md           # the in-depth audit against the workstream
+│   ├── AUDIT-REPORT.md               # generated findings list
+│   ├── PANEL-VALIDATION.md           # generated per-panel live data check
+│   ├── DASHBOARD-CATALOG.md          # generated dashboard/panel catalogue
+│   └── RE-IMPORT-GUIDE.md            # portability test procedure
 ├── .env.example                     # URL / username template - the password field is blank
 ├── .gitignore
 ├── scripts/
@@ -62,16 +89,11 @@ grafana-soc-dashboards/
 │   ├── validate-panels-grafana-api.js # same via Grafana's own query API (known divergence, see F1)
 │   ├── sanitize.js                   # strips telemetry noise from the committed evidence
 │   ├── redact-links.js               # re-points the hardcoded drill-down origin (F17)
+│   ├── capture-screenshots.js        # headless Chrome capture of every dashboard
 │   ├── audit-dashboards.js           # offline audit of the exported JSON
 │   ├── build-catalog.js              # docs/DASHBOARD-CATALOG.md
 │   ├── build-bundle.js               # export/grafana-soc-dashboards.bundle.json
 │   └── build-provisioning.js         # provisioning/**
-└── docs/
-    ├── WORKSTREAM-AUDIT.md           # the in-depth audit against the workstream
-    ├── AUDIT-REPORT.md               # generated findings list
-    ├── PANEL-VALIDATION.md           # generated per-panel live data check
-    ├── DASHBOARD-CATALOG.md          # generated dashboard/panel catalogue
-    └── RE-IMPORT-GUIDE.md            # portability test procedure
 ```
 
 ---
@@ -91,6 +113,7 @@ node scripts\build-catalog.js
 node scripts\build-bundle.js
 node scripts\build-provisioning.js
 node scripts\sanitize.js          # strip telemetry noise from the committed evidence
+node scripts\capture-screenshots.js   # refresh docs/screenshots/ (optional, needs Chrome)
 
 # 3. import into a fresh instance
 .\scripts\import-dashboards.ps1 -GrafanaUrl 'http://<target>:3000' -FolderName 'SOC Detection Lab'
@@ -120,7 +143,7 @@ Verify afterwards with `node scripts/validate-queries.js` — expect `{"data":63
 |---|---|---|
 | Grafana password / API token | `GRAFANA_PASSWORD` env var (or your local `.env`) | ❌ never — `.env` is git-ignored, only `.env.example` (blank password) is committed |
 | Grafana username | `GRAFANA_USER` env var | ❌ not hard-coded in any script |
-| Grafana / OpenSearch URLs | `GRAFANA_URL` / `OSD_BASE_URL` env var | ✅ `.env.example` only — scripts default to `http://localhost:3000` and contain **no** internal addresses |
+| Grafana / OpenSearch URLs | `GRAFANA_URL` / `OSD_BASE_URL` env var | ✅ `.env.example` only — scripts default to `http://localhost:3000` and contain **no** internal addresses. This README deliberately lists the two reachable addresses of the lab (LAN + TailScale), since that is its purpose. |
 
 Treated as *evidence* rather than as environment documentation, the telemetry is stripped from the committed artefacts by `scripts/sanitize.js`:
 
@@ -153,6 +176,7 @@ The audit found **no broken dashboards** — every panel query returns live data
 | **F7** | Default windows are too narrow for low-volume rule groups (`sca` 13/24h, `vulnerability-detector` 48/24h) | P2 |
 | **F8** | The MITRE heat map is scoped to Suricata only; the feed carries 26 techniques in 24h | P2 |
 | **F9** | Two mislabelled panels on Threat Detection (`Top Source IPs` not Suricata-scoped, `Top Alert Categories` aggregates `rule.description`) | P2 |
+| **F9b** | The MITRE ATT&CK Heat Map renders as an **empty grid** — its query returns 51 buckets and the stat panel beside it shows `T1595`/`T1059`, but with only 2 techniques in scope a heat map has nothing to draw | P2 |
 | **F10** | Panels mix `timestamp` (event time) and `@timestamp` (ingest time) as the time axis | P2 |
 | **F11** | No auto-refresh on any dashboard | P2 |
 | **F17** | 22 drill-down links point at a hardcoded OpenSearch Dashboards origin (`https://192.168.1.210:20443/app/…`) — breaks on a rebuild and carries internal addressing inside the export | P1 |

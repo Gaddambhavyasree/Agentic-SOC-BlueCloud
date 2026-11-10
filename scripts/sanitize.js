@@ -39,8 +39,11 @@ const TARGETS = [
   'docs/AUDIT-REPORT.md',
   'docs/DASHBOARD-CATALOG.md',
   'docs/WORKSTREAM-AUDIT.md',
-  'README.md',
 ];
+// NOTE: README.md is deliberately NOT sanitised. It is hand-curated
+// infrastructure documentation (it deliberately lists the reachable addresses
+// of the lab, e.g. the TailScale entry point), so redacting it destroys
+// information the reader needs.
 // NOTE: export/grafana-soc-dashboards.bundle.json and dashboards/*.json are
 // deliberately NOT sanitised - they are import artefacts and must stay byte-
 // faithful to the live dashboards, otherwise the cosmetic per-host colour
