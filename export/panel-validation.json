@@ -1,0 +1,3557 @@
+{
+  "validatedAt": "2026-11-10T12:00:55.422Z",
+  "source": "http://192.168.3.55:3000",
+  "method": "equivalent OpenSearch DSL executed through the Grafana datasource proxy (read-only _search)",
+  "window": "each dashboard default time range",
+  "summary": {
+    "data": 63,
+    "empty": 0,
+    "error": 0
+  },
+  "results": [
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 12,
+      "panelTitle": "(untitled)",
+      "type": "text",
+      "status": "static",
+      "detail": "static panel, no query"
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 2,
+      "panelTitle": "Total Vulnerabilities",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 3,
+      "panelTitle": "Critical Vulnerabilities",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector AND data.vulnerability.severity:Critical",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:vulnerability-detector AND data.vulnerability.severity:Critical\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector AND data.vulnerability.severity:Critical",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 4,
+      "panelTitle": "High Vulnerabilities",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector AND data.vulnerability.severity:High",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:vulnerability-detector AND data.vulnerability.severity:High\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector AND data.vulnerability.severity:High",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 5,
+      "panelTitle": "Solved Vulnerabilities",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector AND data.vulnerability.status:Solved",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:vulnerability-detector AND data.vulnerability.status:Solved\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector AND data.vulnerability.status:Solved",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 6,
+      "panelTitle": "Vulnerability Trend",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 7,
+      "panelTitle": "Severity Distribution",
+      "type": "piechart",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 50,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, Critical: 48",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.vulnerability.severity",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 8,
+      "panelTitle": "Top Affected Hosts",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 51,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, Venkat-Xiaomi: 24, Windows-Imanth: 24",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 9,
+      "panelTitle": "Top CVEs",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 10,
+      "sample": "CVE-2026-121030: 2, CVE-2026-121035: 2, CVE-2026-121037: 2, CVE-2026-121060: 2, CVE-2026-121071: 2",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.vulnerability.cve",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 10,
+      "panelTitle": "Vulnerable Packages",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 50,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, Google Chrome: 48",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.vulnerability.package.name",
+              "size": 8,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Vulnerabilities",
+      "uid": "ad4g2vm",
+      "panelId": 11,
+      "panelTitle": "Package Architectures",
+      "type": "piechart",
+      "refId": "A",
+      "query": "rule.groups:vulnerability-detector",
+      "status": "data",
+      "rows": 50,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, i686: 48",
+      "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:vulnerability-detector",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225641338,
+                    "lt": 1794312041338,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.vulnerability.package.architecture",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225641338,
+                "max": 1794312041338
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 11,
+      "panelTitle": "(untitled)",
+      "type": "text",
+      "status": "static",
+      "detail": "static panel, no query"
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 1,
+      "panelTitle": "Total File Integrity Alerts",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225642184,
+                "max": 1794312042184
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 2,
+      "panelTitle": "Modified Files",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:syscheck AND rule.description:*modified*",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:syscheck AND rule.description:*modified*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck AND rule.description:*modified*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225642184,
+                "max": 1794312042184
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 3,
+      "panelTitle": "Added Files",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:syscheck AND rule.description:*added*",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:syscheck AND rule.description:*added*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck AND rule.description:*added*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225642184,
+                "max": 1794312042184
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 4,
+      "panelTitle": "Deleted Files",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:syscheck AND rule.description:*deleted*",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:syscheck AND rule.description:*deleted*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck AND rule.description:*deleted*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225642184,
+                "max": 1794312042184
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 5,
+      "panelTitle": "File Integrity Trend",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225642184,
+                "max": 1794312042184
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 6,
+      "panelTitle": "Top Modified Files",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 10,
+      "sample": "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\bam\\State\\UserSettings\\S-1-5-21-2819418891-1243367660-3427814927-1001: 57, HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\FirewallRules: 34, H",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "syscheck.path",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 7,
+      "panelTitle": "Top Changed Attributes",
+      "type": "barchart",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 5,
+      "sample": "md5: 162, sha1: 162, sha256: 162, mtime: 103, size: 7",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "syscheck.changed_attributes",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 8,
+      "panelTitle": "Top Agents",
+      "type": "piechart",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 1,
+      "sample": "Venkat-Xiaomi: 523",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 9,
+      "panelTitle": "File Action Distribution",
+      "type": "piechart",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 6,
+      "sample": "Registry Value Entry Added to the System: 209, Registry Value Integrity Checksum Changed: 162, Registry Key Integrity Checksum Changed: 103, Registry Value Entry Deleted.: 40, Registry Key Entry Added to the System: 8",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.description",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "File Integrity",
+      "uid": "ad65mdz",
+      "panelId": 10,
+      "panelTitle": "Recent File Integrity Events",
+      "type": "table",
+      "refId": "A",
+      "query": "rule.groups:syscheck",
+      "status": "data",
+      "rows": 10,
+      "sample": "",
+      "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 10,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:syscheck",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225642184,
+                    "lt": 1794312042184,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "sort": [
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 13,
+      "panelTitle": "(untitled)",
+      "type": "text",
+      "status": "static",
+      "detail": "static panel, no query"
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 1,
+      "panelTitle": "Total Configuration Checks",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.groups:sca",
+      "status": "data",
+      "rows": 97,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0",
+      "detail": "query \"rule.groups:sca\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 2,
+      "panelTitle": "Passed Checks",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:passed",
+      "status": "data",
+      "rows": 97,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:passed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:passed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 3,
+      "panelTitle": "Failed Checks",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 97,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 4,
+      "panelTitle": "Compliance Score",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.type:summary",
+      "status": "data",
+      "rows": 97,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0",
+      "detail": "query \"rule.groups:sca AND data.sca.type:summary\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.type:summary",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 5,
+      "panelTitle": "Pass vs Fail",
+      "type": "piechart",
+      "refId": "A",
+      "query": "rule.groups:sca",
+      "status": "data",
+      "rows": 100,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, failed: 5, not applicable: 5, passed: 1",
+      "detail": "query \"rule.groups:sca\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.sca.check.result",
+              "size": 3,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 6,
+      "panelTitle": "Failed Checks by Agent",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 98,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, Venkat-Xiaomi: 5",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 8,
+      "panelTitle": "Top Failed Controls",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 102,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, Configure 'Interactive logon: Message title for users attempting to log on'.: 1, Ensure 'Account lockout duration' is set to '15 or more minute(s)'.: ",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.sca.check.title",
+              "size": 5,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 7,
+      "panelTitle": "Failed Checks by Policy",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 98,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, CIS Microsoft Windows 11 Enterprise Benchmark v3.0.0: 5",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.sca.policy",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 9,
+      "panelTitle": "Failed Checks Trend",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 97,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 10,
+      "panelTitle": "Compliance by Agent",
+      "type": "piechart",
+      "refId": "A",
+      "query": "",
+      "status": "data",
+      "rows": 102,
+      "sample": "1794139200000: 13203, 1794141000000: 13767, 1794142800000: 13112, 1794144600000: 12514, 1794146400000: 12928, blusoc: 3757832, Windows-Imanth: 5397, Venkat-Xiaomi: 1646, soclab3: 466, vm-Venkat-Parrot-VM: 96",
+      "detail": "query \"\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 5,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 11,
+      "panelTitle": "Failed Check IDs",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 102,
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, 26003: 1, 26005: 1, 26006: 1, 26007: 1, 26027: 1",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.sca.check.id",
+              "size": 5,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794139243085,
+                "max": 1794312043085
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Configuration Assessment",
+      "uid": "adbz577",
+      "panelId": 12,
+      "panelTitle": "Recent Failed Checks",
+      "type": "table",
+      "refId": "A",
+      "query": "rule.groups:sca AND data.sca.check.result:failed",
+      "status": "data",
+      "rows": 5,
+      "sample": "",
+      "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.08",
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 20,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:sca AND data.sca.check.result:failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794139243085,
+                    "lt": 1794312043085,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "sort": [
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 11,
+      "panelTitle": "(untitled)",
+      "type": "text",
+      "status": "static",
+      "detail": "static panel, no query"
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 1,
+      "panelTitle": "Total Alerts",
+      "type": "gauge",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 12639, 1794227400000: 13117, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 2,
+      "panelTitle": "Critical Alerts",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.level:>=15",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.level:>=15\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:>=15",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 3,
+      "panelTitle": "High Alerts",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.level:[12 TO 14]",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.level:[12 TO 14]\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:[12 TO 14]",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 4,
+      "panelTitle": "Medium Alerts",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.level:[7 TO 11]",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 1, 1794227400000: 2, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.level:[7 TO 11]\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:[7 TO 11]",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 5,
+      "panelTitle": "Alert Trend",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 58,
+      "sample": "1794225600000: 12639, 1794227400000: 13117, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016, 3: 2638316, 5: 208871, 6: 119455, 4: 23090, 9: 348",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.level",
+              "size": 15,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 6,
+      "panelTitle": "Severity Distribution",
+      "type": "bargauge",
+      "refId": "Critical",
+      "query": "rule.level:>=15",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.level:>=15\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:>=15",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 6,
+      "panelTitle": "Severity Distribution",
+      "type": "bargauge",
+      "refId": "High",
+      "query": "rule.level:[12 TO 14]",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.level:[12 TO 14]\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:[12 TO 14]",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 6,
+      "panelTitle": "Severity Distribution",
+      "type": "bargauge",
+      "refId": "Medium",
+      "query": "rule.level:[7 TO 11]",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 1, 1794227400000: 2, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.level:[7 TO 11]\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:[7 TO 11]",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 6,
+      "panelTitle": "Severity Distribution",
+      "type": "bargauge",
+      "refId": "Low",
+      "query": "rule.level:[0 TO 6]",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 12638, 1794227400000: 13115, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016",
+      "detail": "query \"rule.level:[0 TO 6]\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.level:[0 TO 6]",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 7,
+      "panelTitle": "Top Agents",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 54,
+      "sample": "1794225600000: 12639, 1794227400000: 13117, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016, blusoc: 2982815, Windows-Imanth: 5397, Venkat-Xiaomi: 1646, soclab3: 335, vm-Venkat-Parrot-VM: 96",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 8,
+      "panelTitle": "Top Alert Categories",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 59,
+      "sample": "1794225600000: 12639, 1794227400000: 13117, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016, syslog: 2930032, fortigate: 2927770, firewall_drop: 206980, office365: 51888, SharePointFileOperation: 21880",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.groups",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225645436,
+                "max": 1794312045436
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 9,
+      "panelTitle": "Top Alert Rules",
+      "type": "table",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 15,
+      "sample": "Fortigate: App passed by firewall.: 2585467, Fortigate: App blocked by firewall.: 206959, Fortigate: Blocked URL belongs to a denied category in policy.: 119239, Office 365: SharePoint file operation events.: 21880, Office 365: Events relat",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.description",
+              "size": 15,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "SOC Overview",
+      "uid": "adgszzq",
+      "panelId": 10,
+      "panelTitle": "Recent Alerts",
+      "type": "table",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 500,
+      "sample": "",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 500,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225645436,
+                    "lt": 1794312045436,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "sort": [
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 9,
+      "panelTitle": "(untitled)",
+      "type": "text",
+      "status": "static",
+      "detail": "static panel, no query"
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 1,
+      "panelTitle": "Total Authentication Failures",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:authentication_failed",
+      "status": "data",
+      "rows": 13,
+      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310",
+      "detail": "query \"rule.groups:authentication_failed\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:authentication_failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 2,
+      "panelTitle": "Invalid Login Attempts",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:invalid_login",
+      "status": "data",
+      "rows": 13,
+      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310",
+      "detail": "query \"rule.groups:invalid_login\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:invalid_login",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 3,
+      "panelTitle": "High Severity Authentication Events",
+      "type": "stat",
+      "refId": "A",
+      "query": "(rule.groups:authentication_failed OR rule.groups:invalid_login) AND rule.level >= 10",
+      "status": "data",
+      "rows": 13,
+      "sample": "1794290400000: 0, 1794292200000: 0, 1794294000000: 0, 1794295800000: 0, 1794297600000: 0",
+      "detail": "query \"(rule.groups:authentication_failed OR rule.groups:invalid_login) AND rule.level >= 10\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "(rule.groups:authentication_failed OR rule.groups:invalid_login) AND rule.level >= 10",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 4,
+      "panelTitle": "Authentication Failures with Source IP",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:authentication_failed AND data.srcip:*",
+      "status": "data",
+      "rows": 13,
+      "sample": "1794290400000: 305, 1794292200000: 327, 1794294000000: 340, 1794295800000: 326, 1794297600000: 309",
+      "detail": "query \"rule.groups:authentication_failed AND data.srcip:*\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:authentication_failed AND data.srcip:*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 5,
+      "panelTitle": "Authentication Failure Trend",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:authentication_failed",
+      "status": "data",
+      "rows": 13,
+      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310",
+      "detail": "query \"rule.groups:authentication_failed\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:authentication_failed",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 6,
+      "panelTitle": "Top Targeted Agents",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:(authentication_failed OR invalid_login)",
+      "status": "data",
+      "rows": 14,
+      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310, blusoc: 3917",
+      "detail": "query \"rule.groups:(authentication_failed OR invalid_login)\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:(authentication_failed OR invalid_login)",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 5,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 7,
+      "panelTitle": "Top Source IPs",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "(rule.groups:authentication_failed OR rule.groups:invalid_login)",
+      "status": "data",
+      "rows": 13,
+      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310",
+      "detail": "query \"(rule.groups:authentication_failed OR rule.groups:invalid_login)\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "(rule.groups:authentication_failed OR rule.groups:invalid_login)",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.ip",
+              "size": 5,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Brute Force & Active Response",
+      "uid": "adl6mwj",
+      "panelId": 8,
+      "panelTitle": "Authentication Event Types",
+      "type": "piechart",
+      "refId": "A",
+      "query": "",
+      "status": "data",
+      "rows": 23,
+      "sample": "1794290400000: 150826, 1794292200000: 158092, 1794294000000: 155014, 1794295800000: 129929, 1794297600000: 116091, Fortigate: App passed by firewall.: 1502730, Fortigate: App blocked by firewall.: 140291, Fortigate: Blocked URL belongs to a",
+      "detail": "query \"\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794290452358,
+                    "lt": 1794312052358,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.description",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794290452358,
+                "max": 1794312052358
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 12,
+      "panelTitle": "(untitled)",
+      "type": "text",
+      "status": "static",
+      "detail": "static panel, no query"
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 1,
+      "panelTitle": "Total Suricata Alerts",
+      "type": "gauge",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 2,
+      "panelTitle": "Critical Suricata Alerts",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:suricata AND rule.level:[15 TO *]",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0",
+      "detail": "query \"rule.groups:suricata AND rule.level:[15 TO *]\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata AND rule.level:[15 TO *]",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 3,
+      "panelTitle": "MITRE Techniques",
+      "type": "stat",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 51,
+      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9, T1059: 55, T1595: 10",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.mitre.id",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 4,
+      "panelTitle": "Alert Trend",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 49,
+      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 5,
+      "panelTitle": "Top Suricata Signatures",
+      "type": "barchart",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 10,
+      "sample": "Suricata DPI - Low severity alert: ET INFO Session Traversal Utilities for NAT (STUN Binding Request): 397, Suricata DPI - Low severity alert: ET INFO Session Traversal Utilities for NAT (STUN Binding Response): 381, Suricata DPI - Low seve",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.description",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 7,
+      "panelTitle": "Top Source IPs",
+      "type": "barchart",
+      "refId": "A",
+      "query": "*",
+      "status": "data",
+      "rows": 5,
+      "sample": "192.168.3.12: 129060, 192.168.1.215: 104634, 192.168.1.45: 73031, 192.168.0.82: 64795, 192.168.0.200: 54156",
+      "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "data.srcip",
+              "size": 5,
+              "min_doc_count": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 6,
+      "panelTitle": "MITRE ATT&CK Heat Map",
+      "type": "heatmap",
+      "refId": "A",
+      "query": "rule.groups:suricata AND rule.mitre.id:*",
+      "status": "data",
+      "rows": 51,
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, T1059: 55, T1595: 10",
+      "detail": "query \"rule.groups:suricata AND rule.mitre.id:*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata AND rule.mitre.id:*",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.mitre.id",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 8,
+      "panelTitle": "Top Agents",
+      "type": "bargauge",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 51,
+      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9, blusoc: 1641, soclab3: 292",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "agent.name",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 10,
+      "panelTitle": "Top Alert Categories",
+      "type": "timeseries",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 59,
+      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9, Suricata DPI - Low severity alert: ET INFO Session Traversal Utilities for NAT (STUN Binding Request): 397, Suricata DPI - Low severity alert: ET I",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 0,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "aggs": {
+          "agg_0": {
+            "terms": {
+              "field": "rule.description",
+              "size": 10,
+              "min_doc_count": 1
+            }
+          },
+          "agg_1": {
+            "date_histogram": {
+              "field": "@timestamp",
+              "fixed_interval": "30m",
+              "min_doc_count": 0,
+              "extended_bounds": {
+                "min": 1794225653551,
+                "max": 1794312053551
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "dashboard": "Threat Detection",
+      "uid": "adsf5p4",
+      "panelId": 11,
+      "panelTitle": "Recent Suricata Alerts",
+      "type": "table",
+      "refId": "A",
+      "query": "rule.groups:suricata",
+      "status": "data",
+      "rows": 20,
+      "sample": "",
+      "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
+      "indices": [
+        "wazuh-alerts-4.x-2026.11.09",
+        "wazuh-alerts-4.x-2026.11.10"
+      ],
+      "body": {
+        "size": 20,
+        "query": {
+          "bool": {
+            "filter": [
+              {
+                "query_string": {
+                  "query": "rule.groups:suricata",
+                  "analyze_wildcard": true
+                }
+              },
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": 1794225653551,
+                    "lt": 1794312053551,
+                    "format": "epoch_millis"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "sort": [
+          {
+            "@timestamp": {
+              "order": "desc"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

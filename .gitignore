@@ -1,0 +1,25 @@
+# secrets / credentials - never commit these
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+credentials.json
+secrets.json
+
+# node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# local scratch
+*.tmp
+*.bak
+*.log

@@ -1,0 +1,22 @@
+# Grafana datasource provisioning - Wazuh detection lab
+# Drop this folder into <grafana>/conf/provisioning/datasources/ and restart Grafana.
+#
+# The uid is pinned so the dashboard JSON in dashboards/ keeps working unchanged
+# after a rebuild (the dashboards reference this exact uid).
+apiVersion: 1
+datasources:
+  - name: Blue Cloud Dashboard
+    uid: cftkburm1y9z4f
+    type: grafana-opensearch-datasource
+    access: proxy
+    url: https://127.0.0.1:9200
+    isDefault: true
+    editable: true
+    jsonData:
+      database: "[wazuh-alerts-4.x-]YYYY.MM.DD"
+      timeField: "@timestamp"
+      interval: Daily
+      flavor: opensearch
+      version: "2.0.0"
+      maxConcurrentShardRequests: 5
+      tlsSkipVerify: true

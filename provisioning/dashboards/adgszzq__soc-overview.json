@@ -1,0 +1,1632 @@
+{
+  "apiVersion": 1,
+  "id": null,
+  "uid": "adgszzq",
+  "title": "SOC Overview",
+  "tags": [
+    "wazuh",
+    "soc",
+    "detection-lab"
+  ],
+  "timezone": "browser",
+  "editable": true,
+  "graphTooltip": 0,
+  "schemaVersion": 42,
+  "version": 1,
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "refresh": "1m",
+  "panels": [
+    {
+      "gridPos": {
+        "h": 5,
+        "w": 14,
+        "x": 5,
+        "y": 0
+      },
+      "id": 11,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"display:flex;justify-content:center;align-items:center;height:100%;margin:0;padding:0;overflow:hidden;\">\n  <img\n    src=\"/public/img/banner.png?v=20261001\"\n    alt=\"Blue Cloud Softech Solutions Limited\"\n    style=\"display:block;width:100%;height:100%;object-fit:contain;margin:0;padding:0;\"\n  />\n</div>",
+        "mode": "html"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [],
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "View All Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover"
+            }
+          ],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 5
+      },
+      "id": 1,
+      "options": {
+        "barShape": "rounded",
+        "barWidthFactor": 0.25,
+        "effects": {
+          "barGlow": true,
+          "centerGlow": true,
+          "gradient": true
+        },
+        "endpointMarker": "glow",
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "segmentCount": 10,
+        "segmentSpacing": 0.15,
+        "shape": "circle",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "sparkline": true,
+        "textMode": "auto"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "*",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Total Alerts",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Critical Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:manager.name,negate:!f,params:soclab,type:phrase,value:soclab),query:(match_phrase:(manager.name:(query:soclab)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:rule.level,negate:!f,params:(gte:15,lte:!n),type:range),range:(rule.level:(gte:15,lte:!n)))))&_q=(filters:!(),query:(language:kuery,query:''))"
+            }
+          ],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 5
+      },
+      "id": 2,
+      "options": {
+        "barShape": "flat",
+        "barWidthFactor": 0.54,
+        "effects": {
+          "barGlow": false,
+          "centerGlow": false,
+          "gradient": false
+        },
+        "endpointMarker": "point",
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "segmentCount": 63,
+        "segmentSpacing": 0.3,
+        "shape": "gauge",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "sparkline": true,
+        "textMode": "auto"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:>=15",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Critical Alerts",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "High Severity",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:manager.name,negate:!f,params:soclab,type:phrase,value:soclab),query:(match_phrase:(manager.name:(query:soclab)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:rule.level,negate:!f,params:(gte:12,lte:14),type:range),range:(rule.level:(gte:12,lte:14)))))&_q=(filters:!(),query:(language:kuery,query:''))"
+            }
+          ],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 5
+      },
+      "id": 3,
+      "options": {
+        "barShape": "flat",
+        "barWidthFactor": 0.54,
+        "effects": {
+          "barGlow": false,
+          "centerGlow": false,
+          "gradient": false
+        },
+        "endpointMarker": "point",
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "segmentCount": 1,
+        "segmentSpacing": 0.3,
+        "shape": "circle",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "sparkline": true,
+        "textMode": "auto"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:[12 TO 14]",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "High Alerts",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Medium Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:manager.name,negate:!f,params:soclab,type:phrase,value:soclab),query:(match_phrase:(manager.name:(query:soclab)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:rule.level,negate:!f,params:(gte:7,lte:11),type:range),range:(rule.level:(gte:7,lte:11)))))&_q=(filters:!(),query:(language:kuery,query:''))"
+            }
+          ],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "yellow",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 5
+      },
+      "id": 4,
+      "options": {
+        "barShape": "flat",
+        "barWidthFactor": 0.54,
+        "effects": {
+          "barGlow": true,
+          "centerGlow": true,
+          "gradient": false
+        },
+        "endpointMarker": "point",
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "segmentCount": 1,
+        "segmentSpacing": 0.3,
+        "shape": "gauge",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "sparkline": true,
+        "textMode": "auto"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:[7 TO 11]",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Medium Alerts",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "max"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.9,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "id": 5,
+      "options": {
+        "annotations": {
+          "clustering": -1,
+          "multiLane": false
+        },
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "enableFacetedFilter": false,
+          "overflow": "ellipsis",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "rule.level",
+              "id": "3",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "15"
+              },
+              "type": "terms"
+            },
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "*",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Alert Trend",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 6,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "overflow": "ellipsis",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "text"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "Critical",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:>=15",
+          "queryType": "lucene",
+          "refId": "Critical",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "High",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:[12 TO 14]",
+          "queryType": "lucene",
+          "refId": "High",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Medium",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:[7 TO 11]",
+          "queryType": "lucene",
+          "refId": "Medium",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Low",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "rule.level:[0 TO 6]",
+          "queryType": "lucene",
+          "refId": "Low",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Severity Distribution",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "id": 7,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "overflow": "ellipsis",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "agent.name",
+              "id": "3",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "field": "timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "*",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Top Agents",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "max": 10000,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "id": 8,
+      "options": {
+        "displayMode": "basic",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "overflow": "ellipsis",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "rule.groups",
+              "id": "3",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "field": "timestamp",
+              "id": "4",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": "0",
+                "trimEdges": "0"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "*",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Top Alert Categories",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "rule.description",
+              "scope": "series"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Alert Rule"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Count",
+              "scope": "series"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Alert Count"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Max",
+              "scope": "series"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Severity"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 29
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Count"
+          }
+        ]
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "rule.description",
+              "id": "3",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "4",
+                "size": "15"
+              },
+              "type": "terms"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "Metric",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            },
+            {
+              "field": "rule.level",
+              "id": "4",
+              "settings": {},
+              "type": "max"
+            }
+          ],
+          "query": "*",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Top Alert Rules",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-opensearch-datasource",
+        "uid": "cftkburm1y9z4f"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "footer": {
+              "reducers": []
+            },
+            "inspect": false
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 29
+      },
+      "id": 10,
+      "options": {
+        "cellHeight": "sm",
+        "showHeader": true
+      },
+      "pluginVersion": "13.1.1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "grafana-opensearch-datasource",
+            "uid": "cftkburm1y9z4f"
+          },
+          "format": "table",
+          "luceneQueryType": "RawData",
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "order": "desc",
+                "size": "500",
+                "useTimeRange": true
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "*",
+          "queryType": "lucene",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "title": "Recent Alerts",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "GeoLocation.city_name": true,
+              "GeoLocation.country_name": true,
+              "GeoLocation.location.lat": true,
+              "GeoLocation.location.lon": true,
+              "GeoLocation.region_name": true,
+              "_id": true,
+              "_index": true,
+              "_type": true,
+              "agent.id": true,
+              "data.integration": true,
+              "data.office365.Actor": true,
+              "data.office365.ActorContextId": true,
+              "data.office365.ActorInfoString": true,
+              "data.office365.ActorIpAddress": true,
+              "data.office365.AppAccessContext.AADSessionId": true,
+              "data.office365.AppAccessContext.APIId": true,
+              "data.office365.AppAccessContext.AuthTime": true,
+              "data.office365.AppAccessContext.ClientAppId": true,
+              "data.office365.AppAccessContext.ClientAppName": true,
+              "data.office365.AppAccessContext.CorrelationId": true,
+              "data.office365.AppAccessContext.DeviceId": true,
+              "data.office365.AppAccessContext.IssuedAtTime": true,
+              "data.office365.AppAccessContext.PFTTokenAppId": true,
+              "data.office365.AppAccessContext.TokenIssuedAtTime": true,
+              "data.office365.AppAccessContext.UniqueTokenId": true,
+              "data.office365.AppAccessContext.UserObjectId": true,
+              "data.office365.AppId": true,
+              "data.office365.AppPoolName": true,
+              "data.office365.ApplicationDisplayName": true,
+              "data.office365.ApplicationId": true,
+              "data.office365.AssertingApplicationId": true,
+              "data.office365.AuthType": true,
+              "data.office365.AuthenticationType": true,
+              "data.office365.AzureActiveDirectoryEventType": true,
+              "data.office365.BrowserName": true,
+              "data.office365.BrowserVersion": true,
+              "data.office365.ChatName": true,
+              "data.office365.ChatThreadId": true,
+              "data.office365.ClientAppId": true,
+              "data.office365.ClientIP": true,
+              "data.office365.ClientIPAddress": true,
+              "data.office365.ClientInfoString": true,
+              "data.office365.ClientProcessName": true,
+              "data.office365.ClientRequestId": true,
+              "data.office365.ClientVersion": true,
+              "data.office365.CommunicationType": true,
+              "data.office365.CorrelationId": true,
+              "data.office365.CreationTime": true,
+              "data.office365.CustomUniqueId": true,
+              "data.office365.DestinationFileExtension": true,
+              "data.office365.DestinationFileName": true,
+              "data.office365.DestinationRelativeUrl": true,
+              "data.office365.DeviceDisplayName": true,
+              "data.office365.DeviceId": true,
+              "data.office365.DeviceProperties": true,
+              "data.office365.DisplayName": true,
+              "data.office365.DoNotDistributeEvent": true,
+              "data.office365.ErrorNumber": true,
+              "data.office365.EventData": true,
+              "data.office365.EventSignature": true,
+              "data.office365.EventSource": true,
+              "data.office365.ExtendedProperties": true,
+              "data.office365.ExternalAccess": true,
+              "data.office365.ExtraProperties": true,
+              "data.office365.FileSizeBytes": true,
+              "data.office365.FileSyncBytesCommitted": true,
+              "data.office365.Folders": true,
+              "data.office365.GeoLocation": true,
+              "data.office365.HighPriorityMediaProcessing": true,
+              "data.office365.HostAppId": true,
+              "data.office365.Id": true,
+              "data.office365.ImplicitShare": true,
+              "data.office365.InterSystemsId": true,
+              "data.office365.InternalLogonType": true,
+              "data.office365.IntraSystemId": true,
+              "data.office365.IsBilateral": true,
+              "data.office365.IsCopilotMentioned": true,
+              "data.office365.IsManagedDevice": true,
+              "data.office365.Item.Attachments": true,
+              "data.office365.Item.Id": true,
+              "data.office365.Item.ImmutableId": true,
+              "data.office365.Item.InternetMessageId": true,
+              "data.office365.Item.ParentFolder.Id": true,
+              "data.office365.Item.ParentFolder.Name": true,
+              "data.office365.Item.ParentFolder.Path": true,
+              "data.office365.Item.Recipients": true,
+              "data.office365.Item.RecipientsCount": true,
+              "data.office365.Item.SizeInBytes": true,
+              "data.office365.Item.Subject": true,
+              "data.office365.ItemName": true,
+              "data.office365.ItemType": true,
+              "data.office365.ListBaseType": true,
+              "data.office365.ListId": true,
+              "data.office365.ListItemUniqueId": true,
+              "data.office365.ListServerTemplate": true,
+              "data.office365.LogonType": true,
+              "data.office365.LogonUserSid": true,
+              "data.office365.MachineDomainInfo": true,
+              "data.office365.MachineId": true,
+              "data.office365.MailboxGuid": true,
+              "data.office365.MailboxOwnerSid": true,
+              "data.office365.MailboxOwnerUPN": true,
+              "data.office365.MessageFiles": true,
+              "data.office365.MessageId": true,
+              "data.office365.MessageImages": true,
+              "data.office365.MessageLinks": true,
+              "data.office365.MessageReactionType": true,
+              "data.office365.MessageURLs": true,
+              "data.office365.MessageVersion": true,
+              "data.office365.Messages": true,
+              "data.office365.ModifiedProperties": true,
+              "data.office365.ObjectId": true,
+              "data.office365.Operation": true,
+              "data.office365.OperationCount": true,
+              "data.office365.OperationProperties": true,
+              "data.office365.OrganizationId": true,
+              "data.office365.OrganizationName": true,
+              "data.office365.OriginatingServer": true,
+              "data.office365.Parameters": true,
+              "data.office365.ParticipantInfo.HasForeignTenantUsers": true,
+              "data.office365.ParticipantInfo.HasGuestUsers": true,
+              "data.office365.ParticipantInfo.HasOtherGuestUsers": true,
+              "data.office365.ParticipantInfo.HasUnauthenticatedUsers": true,
+              "data.office365.ParticipantInfo.ParticipatingDomains": true,
+              "data.office365.ParticipantInfo.ParticipatingSIPDomains": true,
+              "data.office365.ParticipantInfo.ParticipatingTenantIds": true,
+              "data.office365.Permission": true,
+              "data.office365.Platform": true,
+              "data.office365.RecordType": true,
+              "data.office365.RequestId": true,
+              "data.office365.ResourceTenantId": true,
+              "data.office365.ResultStatus": true,
+              "data.office365.SaveToSentItems": true,
+              "data.office365.SessionId": true,
+              "data.office365.SharingLinkScope": true,
+              "data.office365.Site": true,
+              "data.office365.SiteUrl": true,
+              "data.office365.SourceFileExtension": true,
+              "data.office365.SourceFileName": true,
+              "data.office365.SourceRelativeUrl": true,
+              "data.office365.Subscription": true,
+              "data.office365.Target": true,
+              "data.office365.TargetContextId": true,
+              "data.office365.TargetUserOrGroupName": true,
+              "data.office365.TargetUserOrGroupType": true,
+              "data.office365.TokenObjectId": true,
+              "data.office365.TokenTenantId": true,
+              "data.office365.TokenType": true,
+              "data.office365.UniqueSharingId": true,
+              "data.office365.UserAgent": true,
+              "data.office365.UserId": true,
+              "data.office365.UserKey": true,
+              "data.office365.UserMRI": true,
+              "data.office365.UserType": true,
+              "data.office365.Version": true,
+              "data.office365.WebId": true,
+              "data.office365.Workload": true,
+              "decoder.name": true,
+              "full_log": true,
+              "id": true,
+              "input.type": true,
+              "location": true,
+              "manager.name": true,
+              "predecoder.hostname": true,
+              "predecoder.program_name": true,
+              "predecoder.timestamp": true,
+              "rule.firedtimes": true,
+              "rule.gdpr": true,
+              "rule.gpg13": true,
+              "rule.groups": true,
+              "rule.hipaa": true,
+              "rule.mail": true,
+              "rule.mitre.technique": false,
+              "rule.pci_dss": true,
+              "timestamp": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "@timestamp": 0,
+              "GeoLocation.city_name": 9,
+              "GeoLocation.country_name": 10,
+              "GeoLocation.location.lat": 11,
+              "GeoLocation.location.lon": 12,
+              "GeoLocation.region_name": 13,
+              "_id": 14,
+              "_index": 15,
+              "_type": 16,
+              "agent.id": 17,
+              "agent.ip": 2,
+              "agent.name": 1,
+              "data.integration": 18,
+              "data.office365.Actor": 19,
+              "data.office365.ActorContextId": 20,
+              "data.office365.ActorInfoString": 21,
+              "data.office365.ActorIpAddress": 22,
+              "data.office365.AppAccessContext.AADSessionId": 23,
+              "data.office365.AppAccessContext.APIId": 24,
+              "data.office365.AppAccessContext.AuthTime": 25,
+              "data.office365.AppAccessContext.ClientAppId": 26,
+              "data.office365.AppAccessContext.ClientAppName": 27,
+              "data.office365.AppAccessContext.CorrelationId": 28,
+              "data.office365.AppAccessContext.DeviceId": 29,
+              "data.office365.AppAccessContext.IssuedAtTime": 30,
+              "data.office365.AppAccessContext.PFTTokenAppId": 31,
+              "data.office365.AppAccessContext.TokenIssuedAtTime": 32,
+              "data.office365.AppAccessContext.UniqueTokenId": 33,
+              "data.office365.AppAccessContext.UserObjectId": 34,
+              "data.office365.AppId": 35,
+              "data.office365.AppPoolName": 36,
+              "data.office365.ApplicationDisplayName": 37,
+              "data.office365.ApplicationId": 38,
+              "data.office365.AssertingApplicationId": 39,
+              "data.office365.AuthType": 40,
+              "data.office365.AuthenticationType": 41,
+              "data.office365.AzureActiveDirectoryEventType": 42,
+              "data.office365.BrowserName": 43,
+              "data.office365.BrowserVersion": 44,
+              "data.office365.ChatName": 45,
+              "data.office365.ChatThreadId": 46,
+              "data.office365.ClientAppId": 47,
+              "data.office365.ClientIP": 48,
+              "data.office365.ClientIPAddress": 49,
+              "data.office365.ClientInfoString": 50,
+              "data.office365.ClientProcessName": 51,
+              "data.office365.ClientRequestId": 52,
+              "data.office365.ClientVersion": 53,
+              "data.office365.CommunicationType": 54,
+              "data.office365.CorrelationId": 55,
+              "data.office365.CreationTime": 56,
+              "data.office365.CustomUniqueId": 57,
+              "data.office365.DestinationFileExtension": 58,
+              "data.office365.DestinationFileName": 59,
+              "data.office365.DestinationRelativeUrl": 60,
+              "data.office365.DeviceDisplayName": 61,
+              "data.office365.DeviceId": 62,
+              "data.office365.DeviceProperties": 63,
+              "data.office365.DisplayName": 64,
+              "data.office365.DoNotDistributeEvent": 65,
+              "data.office365.ErrorNumber": 66,
+              "data.office365.EventData": 67,
+              "data.office365.EventSignature": 68,
+              "data.office365.EventSource": 69,
+              "data.office365.ExtendedProperties": 70,
+              "data.office365.ExternalAccess": 71,
+              "data.office365.ExtraProperties": 72,
+              "data.office365.FileSizeBytes": 73,
+              "data.office365.FileSyncBytesCommitted": 74,
+              "data.office365.Folders": 75,
+              "data.office365.GeoLocation": 76,
+              "data.office365.HighPriorityMediaProcessing": 77,
+              "data.office365.HostAppId": 78,
+              "data.office365.Id": 79,
+              "data.office365.ImplicitShare": 80,
+              "data.office365.InterSystemsId": 81,
+              "data.office365.InternalLogonType": 82,
+              "data.office365.IntraSystemId": 83,
+              "data.office365.IsBilateral": 84,
+              "data.office365.IsCopilotMentioned": 85,
+              "data.office365.IsManagedDevice": 86,
+              "data.office365.Item.Attachments": 87,
+              "data.office365.Item.Id": 88,
+              "data.office365.Item.ImmutableId": 89,
+              "data.office365.Item.InternetMessageId": 90,
+              "data.office365.Item.ParentFolder.Id": 91,
+              "data.office365.Item.ParentFolder.Name": 92,
+              "data.office365.Item.ParentFolder.Path": 93,
+              "data.office365.Item.Recipients": 94,
+              "data.office365.Item.RecipientsCount": 95,
+              "data.office365.Item.SizeInBytes": 96,
+              "data.office365.Item.Subject": 97,
+              "data.office365.ItemName": 98,
+              "data.office365.ItemType": 99,
+              "data.office365.ListBaseType": 100,
+              "data.office365.ListId": 101,
+              "data.office365.ListItemUniqueId": 102,
+              "data.office365.ListServerTemplate": 103,
+              "data.office365.LogonType": 104,
+              "data.office365.LogonUserSid": 105,
+              "data.office365.MachineDomainInfo": 106,
+              "data.office365.MachineId": 107,
+              "data.office365.MailboxGuid": 108,
+              "data.office365.MailboxOwnerSid": 109,
+              "data.office365.MailboxOwnerUPN": 110,
+              "data.office365.MessageFiles": 111,
+              "data.office365.MessageId": 112,
+              "data.office365.MessageImages": 113,
+              "data.office365.MessageLinks": 114,
+              "data.office365.MessageReactionType": 115,
+              "data.office365.MessageURLs": 116,
+              "data.office365.MessageVersion": 117,
+              "data.office365.Messages": 118,
+              "data.office365.ModifiedProperties": 119,
+              "data.office365.ObjectId": 120,
+              "data.office365.Operation": 121,
+              "data.office365.OperationCount": 122,
+              "data.office365.OperationProperties": 123,
+              "data.office365.OrganizationId": 124,
+              "data.office365.OrganizationName": 125,
+              "data.office365.OriginatingServer": 126,
+              "data.office365.Parameters": 127,
+              "data.office365.ParticipantInfo.HasForeignTenantUsers": 128,
+              "data.office365.ParticipantInfo.HasGuestUsers": 129,
+              "data.office365.ParticipantInfo.HasOtherGuestUsers": 130,
+              "data.office365.ParticipantInfo.HasUnauthenticatedUsers": 131,
+              "data.office365.ParticipantInfo.ParticipatingDomains": 132,
+              "data.office365.ParticipantInfo.ParticipatingSIPDomains": 133,
+              "data.office365.ParticipantInfo.ParticipatingTenantIds": 134,
+              "data.office365.Permission": 135,
+              "data.office365.Platform": 136,
+              "data.office365.RecordType": 137,
+              "data.office365.RequestId": 138,
+              "data.office365.ResourceTenantId": 139,
+              "data.office365.ResultStatus": 140,
+              "data.office365.SaveToSentItems": 141,
+              "data.office365.SessionId": 142,
+              "data.office365.SharingLinkScope": 143,
+              "data.office365.Site": 144,
+              "data.office365.SiteUrl": 145,
+              "data.office365.SourceFileExtension": 146,
+              "data.office365.SourceFileName": 147,
+              "data.office365.SourceRelativeUrl": 148,
+              "data.office365.Subscription": 149,
+              "data.office365.Target": 150,
+              "data.office365.TargetContextId": 151,
+              "data.office365.TargetUserOrGroupName": 152,
+              "data.office365.TargetUserOrGroupType": 153,
+              "data.office365.TokenObjectId": 154,
+              "data.office365.TokenTenantId": 155,
+              "data.office365.TokenType": 156,
+              "data.office365.UniqueSharingId": 157,
+              "data.office365.UserAgent": 158,
+              "data.office365.UserId": 159,
+              "data.office365.UserKey": 160,
+              "data.office365.UserMRI": 161,
+              "data.office365.UserType": 162,
+              "data.office365.Version": 163,
+              "data.office365.WebId": 164,
+              "data.office365.Workload": 165,
+              "decoder.name": 166,
+              "full_log": 167,
+              "id": 168,
+              "input.type": 169,
+              "location": 170,
+              "manager.name": 171,
+              "predecoder.hostname": 172,
+              "predecoder.program_name": 173,
+              "predecoder.timestamp": 174,
+              "rule.description": 5,
+              "rule.firedtimes": 175,
+              "rule.gdpr": 176,
+              "rule.gpg13": 177,
+              "rule.groups": 178,
+              "rule.hipaa": 179,
+              "rule.id": 4,
+              "rule.level": 3,
+              "rule.mail": 180,
+              "rule.mitre.id": 6,
+              "rule.mitre.tactic": 7,
+              "rule.mitre.technique": 8,
+              "rule.pci_dss": 181,
+              "timestamp": 182
+            },
+            "renameByName": {
+              "@timestamp": "Timestamp",
+              "agent.ip": "Agent IP",
+              "agent.name": "Agent Name",
+              "rule.description": "Rule Description",
+              "rule.id": "Rule ID",
+              "rule.level": "Rule Level",
+              "rule.mitre.id": "MITRE ID",
+              "rule.mitre.tactic": "MITRE Tactic",
+              "rule.mitre.technique": "MITRE Technique"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "links": []
+}

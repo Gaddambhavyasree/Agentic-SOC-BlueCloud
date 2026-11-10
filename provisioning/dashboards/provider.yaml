@@ -1,0 +1,18 @@
+# Grafana dashboard provisioning - Wazuh detection lab
+# Drop this folder into <grafana>/conf/provisioning/dashboards/ and restart Grafana.
+#
+# setAllowUiUpdates: true  -> dashboards stay editable in the UI while still
+#                             being seeded from this repository on boot.
+apiVersion: 1
+providers:
+  - name: soc-detection-lab
+    orgId: 1
+    folder: "SOC Detection Lab"
+    folderUid: soc-detection-lab
+    type: file
+    disableDeletion: false
+    allowUiUpdates: true
+    updateIntervalSeconds: 30
+    options:
+      path: /etc/grafana/provisioning/dashboards
+      foldersFromFilesStructure: false

@@ -1,0 +1,3767 @@
+{
+  "generatedAt": "2026-11-10T12:00:55.499Z",
+  "source": "http://192.168.3.55:3000",
+  "grafanaVersion": "13.2.2",
+  "summary": {
+    "dashboards": 6,
+    "panels": 66,
+    "queryPanels": 60,
+    "datasourcesReferenced": 1,
+    "datasourcesOnServer": 6,
+    "errors": 0,
+    "warnings": 8,
+    "info": 27,
+    "passes": 1
+  },
+  "dashboards": [
+    {
+      "file": "dashboards/ad4g2vm__vulnerabilities.json",
+      "uid": "ad4g2vm",
+      "id": 3603265932275712,
+      "title": "Vulnerabilities",
+      "metaVersion": 29,
+      "metaUpdated": "2026-10-01T07:54:55Z",
+      "tags": [],
+      "time": {
+        "from": "now-24h",
+        "to": "now"
+      },
+      "refresh": null,
+      "templating": [],
+      "links": [],
+      "annotations": [
+        "Annotations & Alerts"
+      ],
+      "panelCount": 11,
+      "queryPanelCount": 10,
+      "staticPanelCount": 1,
+      "datasources": [
+        {
+          "uid": "cftkburm1y9z4f",
+          "name": "Blue Cloud Dashboard",
+          "indexPattern": "[wazuh-alerts-4.x-]YYYY.MM.DD"
+        }
+      ],
+      "panels": [
+        {
+          "id": 12,
+          "title": "(untitled)",
+          "type": "text",
+          "gridPos": {
+            "h": 5,
+            "w": 14,
+            "x": 5,
+            "y": 0
+          },
+          "datasource": null,
+          "targets": [],
+          "fields": [],
+          "queryFields": [],
+          "hasStaticContent": true
+        },
+        {
+          "id": 2,
+          "title": "Total Vulnerabilities",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 3,
+          "title": "Critical Vulnerabilities",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 6,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector AND data.vulnerability.severity:Critical",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.vulnerability.severity"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 4,
+          "title": "High Vulnerabilities",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 12,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector AND data.vulnerability.severity:High",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.vulnerability.severity"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 5,
+          "title": "Solved Vulnerabilities",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector AND data.vulnerability.status:Solved",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.vulnerability.status"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 6,
+          "title": "Vulnerability Trend",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 7,
+          "title": "Severity Distribution",
+          "type": "piechart",
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "terms",
+                  "field": "data.vulnerability.severity",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "3",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": "0",
+                    "trimEdges": "0"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.vulnerability.severity",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 8,
+          "title": "Top Affected Hosts",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 22
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.name",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 9,
+          "title": "Top CVEs",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 22
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.vulnerability.cve",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.vulnerability.cve"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 10,
+          "title": "Vulnerable Packages",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 31
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.vulnerability.package.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "8"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.vulnerability.package.name",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 11,
+          "title": "Package Architectures",
+          "type": "piechart",
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 31
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:vulnerability-detector",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.vulnerability.package.architecture",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.vulnerability.package.architecture",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        }
+      ],
+      "fields": [
+        "@timestamp",
+        "agent.name",
+        "data.vulnerability.cve",
+        "data.vulnerability.package.architecture",
+        "data.vulnerability.package.name",
+        "data.vulnerability.severity",
+        "timestamp"
+      ],
+      "queryFields": [
+        "data.vulnerability.severity",
+        "data.vulnerability.status",
+        "rule.groups"
+      ]
+    },
+    {
+      "file": "dashboards/ad65mdz__file-integrity.json",
+      "uid": "ad65mdz",
+      "id": 2099379971076096,
+      "title": "File Integrity",
+      "metaVersion": 39,
+      "metaUpdated": "2026-10-01T07:54:55Z",
+      "tags": [],
+      "time": {
+        "from": "now-24h",
+        "to": "now"
+      },
+      "refresh": null,
+      "templating": [],
+      "links": [],
+      "annotations": [
+        "Annotations & Alerts"
+      ],
+      "panelCount": 11,
+      "queryPanelCount": 10,
+      "staticPanelCount": 1,
+      "datasources": [
+        {
+          "uid": "cftkburm1y9z4f",
+          "name": "Blue Cloud Dashboard",
+          "indexPattern": "[wazuh-alerts-4.x-]YYYY.MM.DD"
+        }
+      ],
+      "panels": [
+        {
+          "id": 11,
+          "title": "(untitled)",
+          "type": "text",
+          "gridPos": {
+            "h": 5,
+            "w": 14,
+            "x": 5,
+            "y": 0
+          },
+          "datasource": null,
+          "targets": [],
+          "fields": [],
+          "queryFields": [],
+          "hasStaticContent": true
+        },
+        {
+          "id": 1,
+          "title": "Total File Integrity Alerts",
+          "type": "stat",
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 0,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 2,
+          "title": "Modified Files",
+          "type": "stat",
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 6,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck AND rule.description:*modified*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "rule.description"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 3,
+          "title": "Added Files",
+          "type": "stat",
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 12,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck AND rule.description:*added*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "rule.description"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 4,
+          "title": "Deleted Files",
+          "type": "stat",
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 18,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck AND rule.description:*deleted*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "rule.description"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 5,
+          "title": "File Integrity Trend",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 14
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 6,
+          "title": "Top Modified Files",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 14
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "syscheck.path",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "syscheck.path"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 7,
+          "title": "Top Changed Attributes",
+          "type": "barchart",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 22
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "syscheck.changed_attributes",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "syscheck.changed_attributes"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 8,
+          "title": "Top Agents",
+          "type": "piechart",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 22
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.name"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 9,
+          "title": "File Action Distribution",
+          "type": "piechart",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 30
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.description",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.description"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 10,
+          "title": "Recent File Integrity Events",
+          "type": "table",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 30
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:syscheck",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "raw_data",
+                  "settings": {
+                    "order": "desc",
+                    "size": "10",
+                    "useTimeRange": true
+                  }
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        }
+      ],
+      "fields": [
+        "@timestamp",
+        "agent.name",
+        "rule.description",
+        "syscheck.changed_attributes",
+        "syscheck.path"
+      ],
+      "queryFields": [
+        "rule.description",
+        "rule.groups"
+      ]
+    },
+    {
+      "file": "dashboards/adbz577__configuration-assessment.json",
+      "uid": "adbz577",
+      "id": 3944732861181952,
+      "title": "Configuration Assessment",
+      "metaVersion": 33,
+      "metaUpdated": "2026-10-01T07:54:55Z",
+      "tags": [],
+      "time": {
+        "from": "now-2d",
+        "to": "now"
+      },
+      "refresh": null,
+      "templating": [],
+      "links": [],
+      "annotations": [
+        "Annotations & Alerts"
+      ],
+      "panelCount": 13,
+      "queryPanelCount": 12,
+      "staticPanelCount": 1,
+      "datasources": [
+        {
+          "uid": "cftkburm1y9z4f",
+          "name": "Blue Cloud Dashboard",
+          "indexPattern": "[wazuh-alerts-4.x-]YYYY.MM.DD"
+        }
+      ],
+      "panels": [
+        {
+          "id": 13,
+          "title": "(untitled)",
+          "type": "text",
+          "gridPos": {
+            "h": 5,
+            "w": 14,
+            "x": 5,
+            "y": 0
+          },
+          "datasource": null,
+          "targets": [],
+          "fields": [],
+          "queryFields": [],
+          "hasStaticContent": true
+        },
+        {
+          "id": 1,
+          "title": "Total Configuration Checks",
+          "type": "gauge",
+          "gridPos": {
+            "h": 9,
+            "w": 7,
+            "x": 0,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 2,
+          "title": "Passed Checks",
+          "type": "gauge",
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 7,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:passed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 3,
+          "title": "Failed Checks",
+          "type": "gauge",
+          "gridPos": {
+            "h": 9,
+            "w": 6,
+            "x": 13,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 4,
+          "title": "Compliance Score",
+          "type": "stat",
+          "gridPos": {
+            "h": 9,
+            "w": 5,
+            "x": 19,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.type:summary",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "avg",
+                  "field": "data.sca.score"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.sca.score",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.type"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 5,
+          "title": "Pass vs Fail",
+          "type": "piechart",
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 0,
+            "y": 14
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.sca.check.result",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "3"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.sca.check.result",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 6,
+          "title": "Failed Checks by Agent",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 9,
+            "w": 13,
+            "x": 11,
+            "y": 14
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.name",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 8,
+          "title": "Top Failed Controls",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 0,
+            "y": 23
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.sca.check.title",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "5"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.sca.check.title",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 7,
+          "title": "Failed Checks by Policy",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 9,
+            "w": 13,
+            "x": 11,
+            "y": 23
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.sca.policy",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.sca.policy",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 9,
+          "title": "Failed Checks Trend",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 9,
+            "w": 11,
+            "x": 0,
+            "y": 32
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 10,
+          "title": "Compliance by Agent",
+          "type": "piechart",
+          "gridPos": {
+            "h": 9,
+            "w": 13,
+            "x": 11,
+            "y": 32
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "avg",
+                  "field": "data.sca.score"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "1",
+                    "size": "5"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.sca.score",
+            "agent.name",
+            "@timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 11,
+          "title": "Failed Check IDs",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 11,
+            "x": 0,
+            "y": 41
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "data.sca.check.id",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "5"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.sca.check.id",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 12,
+          "title": "Recent Failed Checks",
+          "type": "table",
+          "gridPos": {
+            "h": 8,
+            "w": 13,
+            "x": 11,
+            "y": 41
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:sca AND data.sca.check.result:failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "raw_data",
+                  "settings": {
+                    "order": "desc",
+                    "size": "20",
+                    "useTimeRange": true
+                  }
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.sca.check.result"
+          ],
+          "hasStaticContent": false
+        }
+      ],
+      "fields": [
+        "@timestamp",
+        "agent.name",
+        "data.sca.check.id",
+        "data.sca.check.result",
+        "data.sca.check.title",
+        "data.sca.policy",
+        "data.sca.score"
+      ],
+      "queryFields": [
+        "data.sca.check.result",
+        "data.sca.type",
+        "rule.groups"
+      ]
+    },
+    {
+      "file": "dashboards/adgszzq__soc-overview.json",
+      "uid": "adgszzq",
+      "id": 1771443065761792,
+      "title": "SOC Overview",
+      "metaVersion": 68,
+      "metaUpdated": "2026-10-01T07:54:55Z",
+      "tags": [],
+      "time": {
+        "from": "now-24h",
+        "to": "now"
+      },
+      "refresh": null,
+      "templating": [],
+      "links": [],
+      "annotations": [
+        "Annotations & Alerts"
+      ],
+      "panelCount": 11,
+      "queryPanelCount": 10,
+      "staticPanelCount": 1,
+      "datasources": [
+        {
+          "uid": "cftkburm1y9z4f",
+          "name": "Blue Cloud Dashboard",
+          "indexPattern": "[wazuh-alerts-4.x-]YYYY.MM.DD"
+        }
+      ],
+      "panels": [
+        {
+          "id": 11,
+          "title": "(untitled)",
+          "type": "text",
+          "gridPos": {
+            "h": 5,
+            "w": 14,
+            "x": 5,
+            "y": 0
+          },
+          "datasource": null,
+          "targets": [],
+          "fields": [],
+          "queryFields": [],
+          "hasStaticContent": true
+        },
+        {
+          "id": 1,
+          "title": "Total Alerts",
+          "type": "gauge",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 2,
+          "title": "Critical Alerts",
+          "type": "gauge",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 6,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.level:>=15",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "timestamp"
+          ],
+          "queryFields": [
+            "rule.level"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 3,
+          "title": "High Alerts",
+          "type": "gauge",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 12,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.level:[12 TO 14]",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "timestamp"
+          ],
+          "queryFields": [
+            "rule.level"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 4,
+          "title": "Medium Alerts",
+          "type": "gauge",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.level:[7 TO 11]",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "timestamp"
+          ],
+          "queryFields": [
+            "rule.level"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 5,
+          "title": "Alert Trend",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.level",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "15"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.level",
+            "@timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 6,
+          "title": "Severity Distribution",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "Critical",
+              "queryType": "lucene",
+              "query": "rule.level:>=15",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            },
+            {
+              "refId": "High",
+              "queryType": "lucene",
+              "query": "rule.level:[12 TO 14]",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            },
+            {
+              "refId": "Medium",
+              "queryType": "lucene",
+              "query": "rule.level:[7 TO 11]",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            },
+            {
+              "refId": "Low",
+              "queryType": "lucene",
+              "query": "rule.level:[0 TO 6]",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.level"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 7,
+          "title": "Top Agents",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 21
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.name",
+            "timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 8,
+          "title": "Top Alert Categories",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 21
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.groups",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "4",
+                  "type": "date_histogram",
+                  "field": "timestamp",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": "0",
+                    "trimEdges": "0"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.groups",
+            "timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 9,
+          "title": "Top Alert Rules",
+          "type": "table",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 29
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                },
+                {
+                  "id": "4",
+                  "type": "max",
+                  "field": "rule.level",
+                  "settings": {}
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.description",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "4",
+                    "size": "15"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.level",
+            "rule.description"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 10,
+          "title": "Recent Alerts",
+          "type": "table",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 29
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "raw_data",
+                  "settings": {
+                    "order": "desc",
+                    "size": "500",
+                    "useTimeRange": true
+                  }
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        }
+      ],
+      "fields": [
+        "@timestamp",
+        "agent.name",
+        "rule.description",
+        "rule.groups",
+        "rule.level",
+        "timestamp"
+      ],
+      "queryFields": [
+        "rule.level"
+      ]
+    },
+    {
+      "file": "dashboards/adl6mwj__brute-force-and-active-response.json",
+      "uid": "adl6mwj",
+      "id": 3904507615162368,
+      "title": "Brute Force & Active Response",
+      "metaVersion": 33,
+      "metaUpdated": "2026-10-01T07:54:55Z",
+      "tags": [],
+      "time": {
+        "from": "now-6h",
+        "to": "now"
+      },
+      "refresh": null,
+      "templating": [],
+      "links": [],
+      "annotations": [
+        "Annotations & Alerts"
+      ],
+      "panelCount": 9,
+      "queryPanelCount": 8,
+      "staticPanelCount": 1,
+      "datasources": [
+        {
+          "uid": "cftkburm1y9z4f",
+          "name": "Blue Cloud Dashboard",
+          "indexPattern": "[wazuh-alerts-4.x-]YYYY.MM.DD"
+        }
+      ],
+      "panels": [
+        {
+          "id": 9,
+          "title": "(untitled)",
+          "type": "text",
+          "gridPos": {
+            "h": 5,
+            "w": 14,
+            "x": 5,
+            "y": 0
+          },
+          "datasource": null,
+          "targets": [],
+          "fields": [],
+          "queryFields": [],
+          "hasStaticContent": true
+        },
+        {
+          "id": 1,
+          "title": "Total Authentication Failures",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:authentication_failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 2,
+          "title": "Invalid Login Attempts",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 5,
+            "x": 6,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:invalid_login",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 3,
+          "title": "High Severity Authentication Events",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 11,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "(rule.groups:authentication_failed OR rule.groups:invalid_login) AND rule.level >= 10",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 4,
+          "title": "Authentication Failures with Source IP",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 7,
+            "x": 17,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:authentication_failed AND data.srcip:*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "data.srcip"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 5,
+          "title": "Authentication Failure Trend",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:authentication_failed",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 6,
+          "title": "Top Targeted Agents",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:(authentication_failed OR invalid_login)",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "5"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.name",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 7,
+          "title": "Top Source IPs",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 23
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "(rule.groups:authentication_failed OR rule.groups:invalid_login)",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.ip",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "5"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.ip",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 8,
+          "title": "Authentication Event Types",
+          "type": "piechart",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 23
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.description",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.description",
+            "@timestamp"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        }
+      ],
+      "fields": [
+        "@timestamp",
+        "agent.ip",
+        "agent.name",
+        "rule.description"
+      ],
+      "queryFields": [
+        "data.srcip",
+        "rule.groups"
+      ]
+    },
+    {
+      "file": "dashboards/adsf5p4__threat-detection.json",
+      "uid": "adsf5p4",
+      "id": 2059436406124544,
+      "title": "Threat Detection",
+      "metaVersion": 55,
+      "metaUpdated": "2026-10-01T07:54:55Z",
+      "tags": [],
+      "time": {
+        "from": "now-24h",
+        "to": "now"
+      },
+      "refresh": null,
+      "templating": [],
+      "links": [],
+      "annotations": [
+        "Annotations & Alerts"
+      ],
+      "panelCount": 11,
+      "queryPanelCount": 10,
+      "staticPanelCount": 1,
+      "datasources": [
+        {
+          "uid": "cftkburm1y9z4f",
+          "name": "Blue Cloud Dashboard",
+          "indexPattern": "[wazuh-alerts-4.x-]YYYY.MM.DD"
+        }
+      ],
+      "panels": [
+        {
+          "id": 12,
+          "title": "(untitled)",
+          "type": "text",
+          "gridPos": {
+            "h": 5,
+            "w": 14,
+            "x": 5,
+            "y": 0
+          },
+          "datasource": null,
+          "targets": [],
+          "fields": [],
+          "queryFields": [],
+          "hasStaticContent": true
+        },
+        {
+          "id": 1,
+          "title": "Total Suricata Alerts",
+          "type": "gauge",
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 0,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 2,
+          "title": "Critical Suricata Alerts",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 8,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata AND rule.level:[15 TO *]",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "rule.level"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 3,
+          "title": "MITRE Techniques",
+          "type": "stat",
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 16,
+            "y": 5
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.mitre.id",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.mitre.id",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 4,
+          "title": "Alert Trend",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 5,
+          "title": "Top Suricata Signatures",
+          "type": "barchart",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "terms",
+                  "field": "rule.description",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.description"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 7,
+          "title": "Top Source IPs",
+          "type": "barchart",
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 21
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "terms",
+                  "field": "data.srcip",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "5"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "data.srcip"
+          ],
+          "queryFields": [],
+          "hasStaticContent": false
+        },
+        {
+          "id": 6,
+          "title": "MITRE ATT&CK Heat Map",
+          "type": "heatmap",
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 21
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata AND rule.mitre.id:*",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.mitre.id",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.mitre.id",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups",
+            "rule.mitre.id"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 8,
+          "title": "Top Agents",
+          "type": "bargauge",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 30
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "agent.name",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_count",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "4",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto",
+                    "min_doc_count": "0",
+                    "trimEdges": "0"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "agent.name",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 10,
+          "title": "Top Alert Categories",
+          "type": "timeseries",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 30
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "count"
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "3",
+                  "type": "terms",
+                  "field": "rule.description",
+                  "settings": {
+                    "min_doc_count": "1",
+                    "order": "desc",
+                    "orderBy": "_term",
+                    "size": "10"
+                  }
+                },
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "rule.description",
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        },
+        {
+          "id": 11,
+          "title": "Recent Suricata Alerts",
+          "type": "table",
+          "gridPos": {
+            "h": 12,
+            "w": 24,
+            "x": 0,
+            "y": 38
+          },
+          "datasource": {
+            "uid": "cftkburm1y9z4f",
+            "type": "grafana-opensearch-datasource"
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "queryType": "lucene",
+              "query": "rule.groups:suricata",
+              "metrics": [
+                {
+                  "id": "1",
+                  "type": "raw_data",
+                  "settings": {
+                    "order": "desc",
+                    "size": "20",
+                    "useTimeRange": true
+                  }
+                }
+              ],
+              "bucketAggs": [
+                {
+                  "id": "2",
+                  "type": "date_histogram",
+                  "field": "@timestamp",
+                  "settings": {
+                    "interval": "auto"
+                  }
+                }
+              ],
+              "timeField": "@timestamp"
+            }
+          ],
+          "fields": [
+            "@timestamp"
+          ],
+          "queryFields": [
+            "rule.groups"
+          ],
+          "hasStaticContent": false
+        }
+      ],
+      "fields": [
+        "@timestamp",
+        "agent.name",
+        "data.srcip",
+        "rule.description",
+        "rule.mitre.id"
+      ],
+      "queryFields": [
+        "rule.groups",
+        "rule.level",
+        "rule.mitre.id"
+      ]
+    }
+  ],
+  "datasourceUsage": [
+    {
+      "uid": "cftkburm1y9z4f",
+      "name": "Blue Cloud Dashboard",
+      "dashboards": [
+        "Vulnerabilities",
+        "File Integrity",
+        "Configuration Assessment",
+        "SOC Overview",
+        "Brute Force & Active Response",
+        "Threat Detection"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "level": "warn",
+      "scope": "datasources",
+      "title": "Duplicate datasources for https://127.0.0.1:9200|[wazuh-alerts-4.x-]YYYY.MM.DD",
+      "detail": "Blue Cloud Dashboard (cftkburm1y9z4f), Threat Detection Dashboard (ffu1imxcwterkc) all point at the same OpenSearch cluster and index pattern.",
+      "fix": "Consolidate to one datasource, or keep one canonical id per index pattern and re-point every panel at it so imports are deterministic."
+    },
+    {
+      "level": "warn",
+      "scope": "datasources",
+      "title": "Duplicate datasources for https://127.0.0.1:9200|",
+      "detail": "grafana-opensearch-datasource (aftnm572lwhz4f), grafana-opensearch-datasource-1 (ffu5g832pmn7ka) all point at the same OpenSearch cluster and index pattern.",
+      "fix": "Consolidate to one datasource, or keep one canonical id per index pattern and re-point every panel at it so imports are deterministic."
+    },
+    {
+      "level": "warn",
+      "scope": "SOC Overview",
+      "title": "No MITRE field referenced",
+      "detail": "DoD requires the MITRE view to be populated from real alerts, but no panel queries a rule.mitre.* field.",
+      "fix": "Add a terms aggregation on rule.mitre.id / rule.mitre.technique / rule.mitre.tactic."
+    },
+    {
+      "level": "warn",
+      "scope": "datasources",
+      "title": "Datasource \"Blue Cloud Dashboard\" declares version 2.0.0, cluster is 7.10.2",
+      "detail": "The datasource jsonData.version drives how the plugin builds date_histogram intervals and index patterns. Declaring 2.0.0 against a 7.10.2 cluster can silently produce empty or malformed aggregations.",
+      "fix": "Set the datasource version to 7.10.2, or use a plain wildcard index name so no version-dependent interpolation is needed."
+    },
+    {
+      "level": "warn",
+      "scope": "datasources",
+      "title": "Datasource \"Threat Detection Dashboard\" declares version 2.0.0, cluster is 7.10.2",
+      "detail": "The datasource jsonData.version drives how the plugin builds date_histogram intervals and index patterns. Declaring 2.0.0 against a 7.10.2 cluster can silently produce empty or malformed aggregations.",
+      "fix": "Set the datasource version to 7.10.2, or use a plain wildcard index name so no version-dependent interpolation is needed."
+    },
+    {
+      "level": "warn",
+      "scope": "datasources",
+      "title": "Datasource \"Blue Cloud Dashboard\" uses the bracketed legacy index pattern",
+      "detail": "Index name \"[wazuh-alerts-4.x-]YYYY.MM.DD\" is the ES 1.x/2.x style template. The plugin's frontend path expands it correctly, but the backend path (POST /api/ds/query) does not resolve it the same way - every panel replayed through the Grafana API returns zero frames.",
+      "fix": "Use the plain wildcard form \"wazuh-alerts-4.x-*\" with interval \"No pattern\". It resolves identically in both paths and removes the ambiguity."
+    },
+    {
+      "level": "warn",
+      "scope": "datasources",
+      "title": "Datasource \"Threat Detection Dashboard\" uses the bracketed legacy index pattern",
+      "detail": "Index name \"[wazuh-alerts-4.x-]YYYY.MM.DD\" is the ES 1.x/2.x style template. The plugin's frontend path expands it correctly, but the backend path (POST /api/ds/query) does not resolve it the same way - every panel replayed through the Grafana API returns zero frames.",
+      "fix": "Use the plain wildcard form \"wazuh-alerts-4.x-*\" with interval \"No pattern\". It resolves identically in both paths and removes the ambiguity."
+    },
+    {
+      "level": "warn",
+      "scope": "severity coverage",
+      "title": "No level 15+ alerts in the last 24h",
+      "detail": "Highest rule.level observed in the last 24h is 12 (3:2638125, 4:23092, 5:208847, 6:119446, 7:99, 8:23, 9:348, 10:73, 12:14). The \"Critical Alerts\" gauge (rule.level >= 15) and the critical band of the severity panels therefore always read zero in this window.",
+      "fix": "Either widen the default time range of the severity panels, lower the critical threshold to match the data the lab actually produces, or label the gauge explicitly as \"no critical alerts in window\" so an analyst does not read it as a broken panel."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Unused datasource \"grafana-opensearch-datasource\"",
+      "detail": "uid=aftnm572lwhz4f type=grafana-opensearch-datasource url=https://127.0.0.1:9200. No dashboard panel references it.",
+      "fix": "Delete it on the Grafana server, or keep it and note it in the runbook so reviewers know it is not a dependency."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Unused datasource \"grafana-opensearch-datasource-1\"",
+      "detail": "uid=ffu5g832pmn7ka type=grafana-opensearch-datasource url=https://127.0.0.1:9200. No dashboard panel references it.",
+      "fix": "Delete it on the Grafana server, or keep it and note it in the runbook so reviewers know it is not a dependency."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Unused datasource \"grafana-opensearch-datasource-2\"",
+      "detail": "uid=ffxtoeq5mgsu8f type=grafana-opensearch-datasource url=https://127.0.0.1:9200. No dashboard panel references it.",
+      "fix": "Delete it on the Grafana server, or keep it and note it in the runbook so reviewers know it is not a dependency."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Unused datasource \"IRIS API\"",
+      "detail": "uid=cfur5vpamtrswa type=yesoreyeram-infinity-datasource url=https://127.0.0.1. No dashboard panel references it.",
+      "fix": "Delete it on the Grafana server, or keep it and note it in the runbook so reviewers know it is not a dependency."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Unused datasource \"Threat Detection Dashboard\"",
+      "detail": "uid=ffu1imxcwterkc type=grafana-opensearch-datasource url=https://127.0.0.1:9200. No dashboard panel references it.",
+      "fix": "Delete it on the Grafana server, or keep it and note it in the runbook so reviewers know it is not a dependency."
+    },
+    {
+      "level": "info",
+      "scope": "Vulnerabilities",
+      "title": "No auto-refresh interval",
+      "detail": "refresh is empty; panels only update on manual reload.",
+      "fix": "Set refresh to e.g. \"1m\" for SOC dashboards so analysts do not stare at stale numbers."
+    },
+    {
+      "level": "info",
+      "scope": "Vulnerabilities",
+      "title": "No tags",
+      "detail": "Untagged dashboards are harder to find via /api/search and harder to group in the UI.",
+      "fix": "Tag with e.g. [\"wazuh\",\"soc\",\"<domain>\"] consistently across the set."
+    },
+    {
+      "level": "info",
+      "scope": "Vulnerabilities",
+      "title": "Dashboard lives in the General folder",
+      "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
+      "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "File Integrity",
+      "title": "No auto-refresh interval",
+      "detail": "refresh is empty; panels only update on manual reload.",
+      "fix": "Set refresh to e.g. \"1m\" for SOC dashboards so analysts do not stare at stale numbers."
+    },
+    {
+      "level": "info",
+      "scope": "File Integrity",
+      "title": "No tags",
+      "detail": "Untagged dashboards are harder to find via /api/search and harder to group in the UI.",
+      "fix": "Tag with e.g. [\"wazuh\",\"soc\",\"<domain>\"] consistently across the set."
+    },
+    {
+      "level": "info",
+      "scope": "File Integrity",
+      "title": "Dashboard lives in the General folder",
+      "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
+      "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "Configuration Assessment",
+      "title": "No auto-refresh interval",
+      "detail": "refresh is empty; panels only update on manual reload.",
+      "fix": "Set refresh to e.g. \"1m\" for SOC dashboards so analysts do not stare at stale numbers."
+    },
+    {
+      "level": "info",
+      "scope": "Configuration Assessment",
+      "title": "No tags",
+      "detail": "Untagged dashboards are harder to find via /api/search and harder to group in the UI.",
+      "fix": "Tag with e.g. [\"wazuh\",\"soc\",\"<domain>\"] consistently across the set."
+    },
+    {
+      "level": "info",
+      "scope": "Configuration Assessment",
+      "title": "Dashboard lives in the General folder",
+      "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
+      "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "SOC Overview",
+      "title": "No auto-refresh interval",
+      "detail": "refresh is empty; panels only update on manual reload.",
+      "fix": "Set refresh to e.g. \"1m\" for SOC dashboards so analysts do not stare at stale numbers."
+    },
+    {
+      "level": "info",
+      "scope": "SOC Overview",
+      "title": "No tags",
+      "detail": "Untagged dashboards are harder to find via /api/search and harder to group in the UI.",
+      "fix": "Tag with e.g. [\"wazuh\",\"soc\",\"<domain>\"] consistently across the set."
+    },
+    {
+      "level": "info",
+      "scope": "SOC Overview",
+      "title": "Dashboard lives in the General folder",
+      "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
+      "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "Brute Force & Active Response",
+      "title": "No auto-refresh interval",
+      "detail": "refresh is empty; panels only update on manual reload.",
+      "fix": "Set refresh to e.g. \"1m\" for SOC dashboards so analysts do not stare at stale numbers."
+    },
+    {
+      "level": "info",
+      "scope": "Brute Force & Active Response",
+      "title": "No tags",
+      "detail": "Untagged dashboards are harder to find via /api/search and harder to group in the UI.",
+      "fix": "Tag with e.g. [\"wazuh\",\"soc\",\"<domain>\"] consistently across the set."
+    },
+    {
+      "level": "info",
+      "scope": "Brute Force & Active Response",
+      "title": "Dashboard lives in the General folder",
+      "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
+      "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "Threat Detection",
+      "title": "No auto-refresh interval",
+      "detail": "refresh is empty; panels only update on manual reload.",
+      "fix": "Set refresh to e.g. \"1m\" for SOC dashboards so analysts do not stare at stale numbers."
+    },
+    {
+      "level": "info",
+      "scope": "Threat Detection",
+      "title": "No tags",
+      "detail": "Untagged dashboards are harder to find via /api/search and harder to group in the UI.",
+      "fix": "Tag with e.g. [\"wazuh\",\"soc\",\"<domain>\"] consistently across the set."
+    },
+    {
+      "level": "info",
+      "scope": "Threat Detection",
+      "title": "Dashboard lives in the General folder",
+      "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
+      "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "Threat Detection",
+      "title": "MITRE view scope",
+      "detail": "MITRE panels are restricted to: MITRE ATT&CK Heat Map: rule.groups:suricata AND rule.mitre.id:*. Rules outside that filter are not represented in the heat map.",
+      "fix": "Widen the query (drop the rule.groups filter) if the heat map is meant to cover every alert, or state the scope in the panel title."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Datasource \"Blue Cloud Dashboard\" has PPL enabled",
+      "detail": "The panels in this set are authored with Lucene query syntax (queryType: lucene). PPL is available but unused; the PPL endpoint on this cluster does not accept hyphenated index names unquoted, so switching a panel to PPL needs care.",
+      "fix": "Leave PPL off for this dashboard set, or document the PPL syntax separately."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Datasource \"grafana-opensearch-datasource-2\" has PPL enabled",
+      "detail": "The panels in this set are authored with Lucene query syntax (queryType: lucene). PPL is available but unused; the PPL endpoint on this cluster does not accept hyphenated index names unquoted, so switching a panel to PPL needs care.",
+      "fix": "Leave PPL off for this dashboard set, or document the PPL syntax separately."
+    },
+    {
+      "level": "info",
+      "scope": "datasources",
+      "title": "Datasource \"Threat Detection Dashboard\" has PPL enabled",
+      "detail": "The panels in this set are authored with Lucene query syntax (queryType: lucene). PPL is available but unused; the PPL endpoint on this cluster does not accept hyphenated index names unquoted, so switching a panel to PPL needs care.",
+      "fix": "Leave PPL off for this dashboard set, or document the PPL syntax separately."
+    },
+    {
+      "level": "pass",
+      "scope": "Threat Detection",
+      "title": "MITRE fields referenced: rule.mitre.id",
+      "detail": "MITRE ATT&CK context is queried directly from the alert index.",
+      "fix": ""
+    }
+  ]
+}

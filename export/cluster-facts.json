@@ -1,0 +1,385 @@
+{
+  "capturedAt": "2026-11-10T12:00:41.232Z",
+  "cluster": {
+    "name": "wazuh-cluster",
+    "node": "node-1",
+    "version": "7.10.2",
+    "lucene": "9.12.3",
+    "uuid": "ZEdlpvFfRfmer1haZVYrZA"
+  },
+  "indices": {
+    "total": 79,
+    "alertIndices": 44,
+    "statisticsIndices": 8,
+    "stateIndices": 14,
+    "stateIndexNames": [
+      "wazuh-states-inventory-browser-extensions-blusoc",
+      "wazuh-states-inventory-groups-blusoc",
+      "wazuh-states-inventory-hardware-blusoc",
+      "wazuh-states-inventory-hotfixes-blusoc",
+      "wazuh-states-inventory-interfaces-blusoc",
+      "wazuh-states-inventory-networks-blusoc",
+      "wazuh-states-inventory-packages-blusoc",
+      "wazuh-states-inventory-ports-blusoc",
+      "wazuh-states-inventory-processes-blusoc",
+      "wazuh-states-inventory-protocols-blusoc",
+      "wazuh-states-inventory-services-blusoc",
+      "wazuh-states-inventory-system-blusoc",
+      "wazuh-states-inventory-users-blusoc",
+      "wazuh-states-vulnerabilities-blusoc"
+    ],
+    "firstAlertIndex": "wazuh-alerts-4.x-2026.09.23",
+    "lastAlertIndex": "wazuh-alerts-4.x-2026.11.10"
+  },
+  "alerts": {
+    "totalDocuments": 13898587,
+    "documentsLast24h": 2990067,
+    "lastSeen": "2026-11-10T12:00:39.763Z"
+  },
+  "severityLast24h": [
+    {
+      "level": 3,
+      "count": 2638125
+    },
+    {
+      "level": 4,
+      "count": 23092
+    },
+    {
+      "level": 5,
+      "count": 208847
+    },
+    {
+      "level": 6,
+      "count": 119446
+    },
+    {
+      "level": 7,
+      "count": 99
+    },
+    {
+      "level": 8,
+      "count": 23
+    },
+    {
+      "level": 9,
+      "count": 348
+    },
+    {
+      "level": 10,
+      "count": 73
+    },
+    {
+      "level": 12,
+      "count": 14
+    }
+  ],
+  "ruleGroupsLast24h": [
+    {
+      "group": "syslog",
+      "count": 2929813
+    },
+    {
+      "group": "fortigate",
+      "count": 2927551
+    },
+    {
+      "group": "firewall_drop",
+      "count": 206956
+    },
+    {
+      "group": "office365",
+      "count": 51887
+    },
+    {
+      "group": "SharePointFileOperation",
+      "count": 21880
+    },
+    {
+      "group": "ExchangeItemAggregated",
+      "count": 21363
+    },
+    {
+      "group": "authentication_failed",
+      "count": 15611
+    },
+    {
+      "group": "invalid_login",
+      "count": 15593
+    },
+    {
+      "group": "windows",
+      "count": 6439
+    },
+    {
+      "group": "sysmon",
+      "count": 5988
+    },
+    {
+      "group": "sysmon_eid1_detections",
+      "count": 5518
+    },
+    {
+      "group": "Exchange",
+      "count": 4157
+    },
+    {
+      "group": "local",
+      "count": 3178
+    },
+    {
+      "group": "suricata",
+      "count": 1933
+    },
+    {
+      "group": "crowdsec",
+      "count": 1923
+    },
+    {
+      "group": "systemd",
+      "count": 1246
+    },
+    {
+      "group": "SharePointSharingOperation",
+      "count": 1044
+    },
+    {
+      "group": "SharePoint",
+      "count": 927
+    },
+    {
+      "group": "AzureActiveDirectoryStsLogon",
+      "count": 765
+    },
+    {
+      "group": "ossec",
+      "count": 578
+    },
+    {
+      "group": "MicrosoftTeams",
+      "count": 565
+    },
+    {
+      "group": "OneDrive",
+      "count": 559
+    },
+    {
+      "group": "syscheck",
+      "count": 523
+    },
+    {
+      "group": "syscheck_registry",
+      "count": 523
+    },
+    {
+      "group": "ExchangeItemGroup",
+      "count": 482
+    },
+    {
+      "group": "sysmon_eid11_detections",
+      "count": 413
+    },
+    {
+      "group": "ExchangeItem",
+      "count": 302
+    },
+    {
+      "group": "syscheck_entry_modified",
+      "count": 265
+    },
+    {
+      "group": "pam",
+      "count": 246
+    },
+    {
+      "group": "syscheck_entry_added",
+      "count": 217
+    }
+  ],
+  "dashboardGroups": {
+    "authentication_failed": {
+      "last24h": 15611,
+      "last7d": 147863
+    },
+    "invalid_login": {
+      "last24h": 15593,
+      "last7d": 147801
+    },
+    "suricata": {
+      "last24h": 1933,
+      "last7d": 9691
+    },
+    "syscheck": {
+      "last24h": 523,
+      "last7d": 1380
+    },
+    "sca": {
+      "last24h": 13,
+      "last7d": 993
+    },
+    "vulnerability-detector": {
+      "last24h": 48,
+      "last7d": 10346
+    },
+    "pam": {
+      "last24h": 246,
+      "last7d": 1404
+    },
+    "crowdsec": {
+      "last24h": 1923,
+      "last7d": 9674
+    },
+    "windows": {
+      "last24h": 6439,
+      "last7d": 10622
+    },
+    "sysmon": {
+      "last24h": 5988,
+      "last7d": 8835
+    },
+    "ossec": {
+      "last24h": 578,
+      "last7d": 1819
+    }
+  },
+  "mitreTechniquesLast24h": [
+    {
+      "technique": "T1059.003",
+      "count": 5392
+    },
+    {
+      "technique": "T1114.003",
+      "count": 4157
+    },
+    {
+      "technique": "T1087",
+      "count": 2701
+    },
+    {
+      "technique": "T1213.002",
+      "count": 1044
+    },
+    {
+      "technique": "T1112",
+      "count": 523
+    },
+    {
+      "technique": "T1059",
+      "count": 433
+    },
+    {
+      "technique": "T1105",
+      "count": 394
+    },
+    {
+      "technique": "T1565.001",
+      "count": 266
+    },
+    {
+      "technique": "T1078",
+      "count": 189
+    },
+    {
+      "technique": "T1059.001",
+      "count": 65
+    },
+    {
+      "technique": "T1070.004",
+      "count": 64
+    },
+    {
+      "technique": "T1021",
+      "count": 55
+    },
+    {
+      "technique": "T1543.003",
+      "count": 52
+    },
+    {
+      "technique": "T1485",
+      "count": 41
+    },
+    {
+      "technique": "T1110",
+      "count": 23
+    },
+    {
+      "technique": "T1098",
+      "count": 22
+    },
+    {
+      "technique": "T1484",
+      "count": 20
+    },
+    {
+      "technique": "T1570",
+      "count": 19
+    },
+    {
+      "technique": "T1489",
+      "count": 18
+    },
+    {
+      "technique": "T1531",
+      "count": 18
+    },
+    {
+      "technique": "T1548.003",
+      "count": 13
+    },
+    {
+      "technique": "T1595",
+      "count": 10
+    },
+    {
+      "technique": "T1546.015",
+      "count": 6
+    },
+    {
+      "technique": "T1562.004",
+      "count": 3
+    },
+    {
+      "technique": "T1562.001",
+      "count": 2
+    }
+  ],
+  "agentsLast7d": [
+    {
+      "agent": "blusoc",
+      "count": 12162373
+    },
+    {
+      "agent": "soclab3",
+      "count": 10537
+    },
+    {
+      "agent": "Windows-Imanth",
+      "count": 8465
+    },
+    {
+      "agent": "soclab2",
+      "count": 7156
+    },
+    {
+      "agent": "Venkat-Xiaomi",
+      "count": 4475
+    },
+    {
+      "agent": "soclab4",
+      "count": 594
+    },
+    {
+      "agent": "Windows-Venkat-Xiaomi",
+      "count": 539
+    },
+    {
+      "agent": "vm-Venkat-Parrot-VM",
+      "count": 96
+    },
+    {
+      "agent": "Aneesh-Windows",
+      "count": 34
+    }
+  ]
+}
