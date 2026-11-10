@@ -7,7 +7,7 @@
     Read-only against the Grafana API. Nothing is created, changed or deleted on the server.
 
 .PARAMETER GrafanaUrl
-    Base URL of the Grafana instance, e.g. http://192.168.3.55:3000
+    Base URL of the Grafana instance. Defaults to $env:GRAFANA_URL, else http://localhost:3000
 
 .PARAMETER User
     Username for HTTP Basic auth. Defaults to $env:GRAFANA_USER.
@@ -21,11 +21,11 @@
 
 .EXAMPLE
     $env:GRAFANA_USER='admin'; $env:GRAFANA_PASSWORD='***'
-    .\export-dashboards.ps1 -GrafanaUrl 'http://192.168.3.55:3000'
+    .\export-dashboards.ps1 -GrafanaUrl $env:GRAFANA_URL
 #>
 [CmdletBinding()]
 param(
-    [string]$GrafanaUrl = 'http://192.168.3.55:3000',
+    [string]$GrafanaUrl = $(if ($env:GRAFANA_URL) { $env:GRAFANA_URL } else { 'http://localhost:3000' }),
     [string]$User = $env:GRAFANA_USER,
     [string]$Password = $env:GRAFANA_PASSWORD,
     [string]$OutputDir = (Split-Path -Parent $PSScriptRoot)

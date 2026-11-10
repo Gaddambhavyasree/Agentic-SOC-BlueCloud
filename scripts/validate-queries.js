@@ -19,7 +19,7 @@
  *
  * Usage:
  *   $env:GRAFANA_USER='admin'; $env:GRAFANA_PASSWORD='***'
- *   node scripts/validate-queries.js [--url http://192.168.3.55:3000]
+ *   node scripts/validate-queries.js [--url http://<grafana-host>:3000]
  */
 'use strict';
 
@@ -37,7 +37,7 @@ const argOf = (n, d) => {
   return i >= 0 && argv[i + 1] ? argv[i + 1] : d;
 };
 
-const URL_BASE = argOf('--url', process.env.GRAFANA_URL || 'http://192.168.3.55:3000');
+const URL_BASE = argOf('--url', process.env.GRAFANA_URL || 'http://localhost:3000');
 const USER = process.env.GRAFANA_USER;
 const PASS = process.env.GRAFANA_PASSWORD;
 const WINDOW = argOf('--window', ''); // e.g. --window 7d overrides the dashboard default
@@ -282,8 +282,8 @@ function bucketSummary(resp) {
   md.push('|---|---|---|---|---|');
   for (const r of results) {
     if (r.status === 'static') continue;
-    const mark = { data: '✅ data', empty: '⚠️ empty', error: '🔴 error' }[r.status];
-    md.push(`| ${r.dashboard} | ${r.panelTitle} (#${r.panelId}) | \`${String(r.query).replace(/\|/g, '\\|')}\` | ${r.rows ?? '—'} | ${mark} |`);
+    const mark = { data: 'Ã¢Å“â€¦ data', empty: 'Ã¢Å¡Â Ã¯Â¸Â empty', error: 'Ã°Å¸â€Â´ error' }[r.status];
+    md.push(`| ${r.dashboard} | ${r.panelTitle} (#${r.panelId}) | \`${String(r.query).replace(/\|/g, '\\|')}\` | ${r.rows ?? 'Ã¢â‚¬â€'} | ${mark} |`);
   }
   md.push('');
   const empties = results.filter((r) => r.status === 'empty');
@@ -292,14 +292,14 @@ function bucketSummary(resp) {
     md.push('');
     md.push('These are the ones to look at: either the rule has not fired inside the window, the field is not decoded upstream, or the window is too narrow.');
     md.push('');
-    for (const e of empties) md.push(`- **${e.dashboard} → ${e.panelTitle}** — \`${e.query}\` (${e.detail})`);
+    for (const e of empties) md.push(`- **${e.dashboard} Ã¢â€ â€™ ${e.panelTitle}** Ã¢â‚¬â€ \`${e.query}\` (${e.detail})`);
     md.push('');
   }
   const errs = results.filter((r) => r.status === 'error');
   if (errs.length) {
     md.push('## Errored panels');
     md.push('');
-    for (const e of errs) md.push(`- **${e.dashboard} → ${e.panelTitle}** — \`${e.detail}\``);
+    for (const e of errs) md.push(`- **${e.dashboard} Ã¢â€ â€™ ${e.panelTitle}** Ã¢â‚¬â€ \`${e.detail}\``);
     md.push('');
   }
   fs.mkdirSync(DOC_DIR, { recursive: true });

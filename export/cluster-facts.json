@@ -5,7 +5,7 @@
     "node": "node-1",
     "version": "7.10.2",
     "lucene": "9.12.3",
-    "uuid": "ZEdlpvFfRfmer1haZVYrZA"
+    "uuid": "<cluster-uuid>"
   },
   "indices": {
     "total": 79,
@@ -13,20 +13,20 @@
     "statisticsIndices": 8,
     "stateIndices": 14,
     "stateIndexNames": [
-      "wazuh-states-inventory-browser-extensions-blusoc",
-      "wazuh-states-inventory-groups-blusoc",
-      "wazuh-states-inventory-hardware-blusoc",
-      "wazuh-states-inventory-hotfixes-blusoc",
-      "wazuh-states-inventory-interfaces-blusoc",
-      "wazuh-states-inventory-networks-blusoc",
-      "wazuh-states-inventory-packages-blusoc",
-      "wazuh-states-inventory-ports-blusoc",
-      "wazuh-states-inventory-processes-blusoc",
-      "wazuh-states-inventory-protocols-blusoc",
-      "wazuh-states-inventory-services-blusoc",
-      "wazuh-states-inventory-system-blusoc",
-      "wazuh-states-inventory-users-blusoc",
-      "wazuh-states-vulnerabilities-blusoc"
+      "wazuh-states-inventory-browser-extensions-<agent>",
+      "wazuh-states-inventory-groups-<agent>",
+      "wazuh-states-inventory-hardware-<agent>",
+      "wazuh-states-inventory-hotfixes-<agent>",
+      "wazuh-states-inventory-interfaces-<agent>",
+      "wazuh-states-inventory-networks-<agent>",
+      "wazuh-states-inventory-packages-<agent>",
+      "wazuh-states-inventory-ports-<agent>",
+      "wazuh-states-inventory-processes-<agent>",
+      "wazuh-states-inventory-protocols-<agent>",
+      "wazuh-states-inventory-services-<agent>",
+      "wazuh-states-inventory-system-<agent>",
+      "wazuh-states-inventory-users-<agent>",
+      "wazuh-states-vulnerabilities-<agent>"
     ],
     "firstAlertIndex": "wazuh-alerts-4.x-2026.09.23",
     "lastAlertIndex": "wazuh-alerts-4.x-2026.11.10"
@@ -346,39 +346,39 @@
   ],
   "agentsLast7d": [
     {
-      "agent": "blusoc",
+      "agent": "<agent>",
       "count": 12162373
     },
     {
-      "agent": "soclab3",
+      "agent": "<agent>",
       "count": 10537
     },
     {
-      "agent": "Windows-Imanth",
+      "agent": "<agent>",
       "count": 8465
     },
     {
-      "agent": "soclab2",
+      "agent": "<agent>",
       "count": 7156
     },
     {
-      "agent": "Venkat-Xiaomi",
+      "agent": "<agent>",
       "count": 4475
     },
     {
-      "agent": "soclab4",
+      "agent": "<agent>",
       "count": 594
     },
     {
-      "agent": "Windows-Venkat-Xiaomi",
+      "agent": "Windows-<agent>",
       "count": 539
     },
     {
-      "agent": "vm-Venkat-Parrot-VM",
+      "agent": "<agent>",
       "count": 96
     },
     {
-      "agent": "Aneesh-Windows",
+      "agent": "<agent>",
       "count": 34
     }
   ]

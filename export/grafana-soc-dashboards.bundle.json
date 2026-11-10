@@ -7837,7 +7837,7 @@
     }
   ],
   "meta": {
-    "builtAt": "2026-11-10T12:00:55.613Z",
+    "builtAt": "2026-11-10T12:11:59.488Z",
     "source": "http://192.168.3.55:3000",
     "grafanaVersion": "13.2.2",
     "dashboardCount": 6,

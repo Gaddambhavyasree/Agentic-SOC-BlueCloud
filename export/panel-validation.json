@@ -359,7 +359,7 @@
       "query": "rule.groups:vulnerability-detector",
       "status": "data",
       "rows": 51,
-      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, Venkat-Xiaomi: 24, Windows-Imanth: 24",
+      "sample": "1794225600000: 0, 1794227400000: 0, 1794229200000: 0, 1794231000000: 0, 1794232800000: 0, <agent>: 24, <agent>: 24",
       "detail": "query \"rule.groups:vulnerability-detector\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.09",
@@ -871,7 +871,7 @@
       "query": "rule.groups:syscheck",
       "status": "data",
       "rows": 10,
-      "sample": "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\bam\\State\\UserSettings\\S-1-5-21-2819418891-1243367660-3427814927-1001: 57, HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\FirewallRules: 34, H",
+      "sample": "HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\bam\\State\\UserSettings\\<sid>: 57, HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\FirewallRules: 34, H",
       "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.09",
@@ -971,7 +971,7 @@
       "query": "rule.groups:syscheck",
       "status": "data",
       "rows": 1,
-      "sample": "Venkat-Xiaomi: 523",
+      "sample": "<agent>: 523",
       "detail": "query \"rule.groups:syscheck\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.09",
@@ -1410,7 +1410,7 @@
       "query": "rule.groups:sca AND data.sca.check.result:failed",
       "status": "data",
       "rows": 98,
-      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, Venkat-Xiaomi: 5",
+      "sample": "1794139200000: 0, 1794141000000: 0, 1794142800000: 0, 1794144600000: 0, 1794146400000: 0, <agent>: 5",
       "detail": "query \"rule.groups:sca AND data.sca.check.result:failed\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.08",
@@ -1651,7 +1651,7 @@
       "query": "",
       "status": "data",
       "rows": 102,
-      "sample": "1794139200000: 13203, 1794141000000: 13767, 1794142800000: 13112, 1794144600000: 12514, 1794146400000: 12928, blusoc: 3757832, Windows-Imanth: 5397, Venkat-Xiaomi: 1646, soclab3: 466, vm-Venkat-Parrot-VM: 96",
+      "sample": "1794139200000: 13203, 1794141000000: 13767, 1794142800000: 13112, 1794144600000: 12514, 1794146400000: 12928, <agent>: 3757832, <agent>: 5397, <agent>: 1646, <agent>: 466, <agent>: 96",
       "detail": "query \"\" on 3 index(es): wazuh-alerts-4.x-2026.11.08, wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.08",
@@ -2326,7 +2326,7 @@
       "query": "*",
       "status": "data",
       "rows": 54,
-      "sample": "1794225600000: 12639, 1794227400000: 13117, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016, blusoc: 2982815, Windows-Imanth: 5397, Venkat-Xiaomi: 1646, soclab3: 335, vm-Venkat-Parrot-VM: 96",
+      "sample": "1794225600000: 12639, 1794227400000: 13117, 1794229200000: 14316, 1794231000000: 18680, 1794232800000: 32016, <agent>: 2982815, <agent>: 5397, <agent>: 1646, <agent>: 335, <agent>: 96",
       "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.09",
@@ -2820,7 +2820,7 @@
       "query": "rule.groups:(authentication_failed OR invalid_login)",
       "status": "data",
       "rows": 14,
-      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310, blusoc: 3917",
+      "sample": "1794290400000: 307, 1794292200000: 327, 1794294000000: 341, 1794295800000: 327, 1794297600000: 310, <agent>: 3917",
       "detail": "query \"rule.groups:(authentication_failed OR invalid_login)\" on 1 index(es): wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.10"
@@ -3282,7 +3282,7 @@
       "query": "*",
       "status": "data",
       "rows": 5,
-      "sample": "192.168.3.12: 129060, 192.168.1.215: 104634, 192.168.1.45: 73031, 192.168.0.82: 64795, 192.168.0.200: 54156",
+      "sample": "<ip>: 129060, <ip>: 104634, <ip>: 73031, <ip>: 64795, <ip>: 54156",
       "detail": "query \"*\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.09",
@@ -3393,7 +3393,7 @@
       "query": "rule.groups:suricata",
       "status": "data",
       "rows": 51,
-      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9, blusoc: 1641, soclab3: 292",
+      "sample": "1794225600000: 16, 1794227400000: 19, 1794229200000: 13, 1794231000000: 3, 1794232800000: 9, <agent>: 1641, <agent>: 292",
       "detail": "query \"rule.groups:suricata\" on 2 index(es): wazuh-alerts-4.x-2026.11.09, wazuh-alerts-4.x-2026.11.10",
       "indices": [
         "wazuh-alerts-4.x-2026.11.09",

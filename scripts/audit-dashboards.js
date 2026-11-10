@@ -66,6 +66,26 @@ const dashboards = files.map((file) => {
       for (const m of t.metrics) if (m.field) fields.add(m.field);
       for (const b of t.bucketAggs) if (b.field) fields.add(b.field);
     }
+
+    // absolute data links (drill-downs) and per-value colour overrides
+    const linkUrls = [];
+    const overrides = [];
+    const walk = (node) => {
+      if (!node || typeof node !== 'object') return;
+      if (Array.isArray(node)) return node.forEach(walk);
+      if (node.links && Array.isArray(node.links)) {
+        for (const l of node.links) if (l && typeof l.url === 'string' && /^https?:/i.test(l.url)) {
+          linkUrls.push({ title: l.title || '', url: l.url });
+        }
+      }
+      if (node.overrides && Array.isArray(node.overrides)) {
+        for (const o of node.overrides) {
+          if (o && o.matcher && o.matcher.options) overrides.push(String(o.matcher.options));
+        }
+      }
+      Object.values(node).forEach(walk);
+    };
+    walk(p.fieldConfig);
     // field names embedded in the lucene query string
     const qFields = new Set();
     for (const t of targets) {
@@ -88,6 +108,8 @@ const dashboards = files.map((file) => {
       queryFields: [...qFields],
       hasStaticContent:
         p.type === 'text' || p.type === 'markdown' || p.type === 'news' ? true : false,
+      linkUrls,
+      overrides,
     };
   });
 
@@ -224,6 +246,23 @@ for (const db of dashboards) {
         `type=${p.type} id=${p.id}. It will render empty.`,
         'Add a target or convert the panel to text/markdown.');
     }
+  }
+
+  /* -- hardcoded drill-down links -- */
+  const links = db.panels.flatMap((p) => p.linkUrls || []);
+  if (links.length) {
+    const hosts = [...new Set(links.map((l) => new URL(l.url).host))];
+    add('warn', db.title, `${links.length} drill-down links point at a hardcoded host`,
+      `All panel links resolve to ${hosts.join(', ')} - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.`,
+      'Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).');
+  }
+
+  /* -- hardcoded per-value colour overrides -- */
+  const overrides = [...new Set(db.panels.flatMap((p) => p.overrides || []))];
+  if (overrides.length) {
+    add('info', db.title, `${overrides.length} hardcoded per-value colour overrides`,
+      `Panels colour values by hardcoded name (${overrides.slice(0, 6).join(', ')}${overrides.length > 6 ? ', ...' : ''}). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.`,
+      'Use a value mapping or a regex-based override instead of hardcoded names.');
   }
 
   /* -- MITRE coverage (DoD requirement) -- */

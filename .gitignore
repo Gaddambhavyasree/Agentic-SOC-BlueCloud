@@ -1,11 +1,15 @@
 # secrets / credentials - never commit these
 .env
 .env.*
+!.env.example
 *.key
 *.pem
 *.pfx
 credentials.json
 secrets.json
+
+# unsanitised evidence (contains internal hostnames / IPs / SIDs)
+export/raw/
 
 # node
 node_modules/

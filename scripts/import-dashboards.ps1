@@ -21,7 +21,7 @@
                       importing analyst pick the datasource interactively).
 
 .PARAMETER GrafanaUrl
-    Base URL, e.g. http://192.168.3.55:3000
+    Base URL. Defaults to $env:GRAFANA_URL, else http://localhost:3000
 
 .PARAMETER FolderName
     Optional. Creates a folder with this name and imports the dashboards into it.
@@ -38,7 +38,7 @@
 #>
 [CmdletBinding()]
 param(
-    [string]$GrafanaUrl = 'http://192.168.3.55:3000',
+    [string]$GrafanaUrl = $(if ($env:GRAFANA_URL) { $env:GRAFANA_URL } else { 'http://localhost:3000' }),
     [string]$User = $env:GRAFANA_USER,
     [string]$Password = $env:GRAFANA_PASSWORD,
     [string]$FolderName = '',

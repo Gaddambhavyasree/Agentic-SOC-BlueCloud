@@ -33,7 +33,7 @@
 | Alerts in the last 24h | 2,979,089 |
 | Freshest `@timestamp` | 2026-11-10T11:58Z (live at audit time) |
 | Distinct MITRE techniques (24h) | 26 (`T1059.003` 5358, `T1114.003` 4155, `T1087` 2684, `T1213.002` 1044, `T1112` 523 …) |
-| Agents reporting (7d) | `blusoc` 12.15M, `soclab3` 10.5k, `Windows-Imanth` 8.5k, `soclab2` 7.2k, `Venkat-Xiaomi` 4.5k, `soclab4` 594, `Windows-Venkat-Xiaomi` 574, `vm-Venkat-Parrot-VM` 96, `Aneesh-Windows` 34 |
+| Agents reporting (7d) | 9 distinct agents — the manager host accounts for 12.15M alerts, the rest are a long tail (10.5k / 8.5k / 7.2k / 4.5k / 594 / 574 / 96 / 34) |
 
 ---
 
@@ -137,6 +137,14 @@ Each dashboard has a text panel pointing at `/public/img/banner.png` (Blue Cloud
 **F5 · PPL is enabled on the datasource while every panel is authored in Lucene**
 `jsonData.pplEnabled = true`, but all 63 targets use `queryType: lucene` with Lucene query strings. On this cluster the PPL endpoint does not accept hyphenated index names unquoted (`index=wazuh-alerts-4.x-2026.11.10` fails to tokenise), so anyone who flips a panel to PPL in the query editor gets a silent empty result. *Fix:* turn PPL off for this datasource, or document the required `index="…"` quoting alongside the Lucene fallback.
 
+**F17 · Every drill-down link points at a hardcoded OpenSearch Dashboards origin**
+**22** panel links across all six dashboards resolve to `https://192.168.1.210:20443/app/...` — 21 to the OSD *Discover* app (`/app/data-explorer/discover#?_a=(discover:…)`) and 1 to the OSD *MITRE ATT&CK* app (`/app/mitre-attack`). They are absolute URLs baked into the panel definitions, so they (a) break on any other instance, and (b) are why the exported dashboard JSON carries a second internal host.
+
+There is a positive reading too: the drill-downs are exactly the **OpenSearch Dashboards / Wazuh app hand-off the workstream describes**, so the OSD integration is present in the links even though the dashboards themselves are Grafana. *Fix:* re-point the origin from configuration rather than the panel JSON — `scripts/redact-links.js --osd-base <url> --write` rewrites all 22 in one pass — and point them at Grafana Explore if the OSD hand-off is not wanted.
+
+**F18 · Hardcoded per-host colour overrides**
+21 `fieldConfig.overrides` entries across the six dashboards colour values by **exact host name** (Windows endpoints, the SOC lab VMs and the manager host). If a host is renamed or absent the override silently does nothing (the panel falls back to the palette), and the exported JSON embeds an inventory of estate machine names. *Fix:* use a value mapping or a regex override instead of hardcoded names.
+
 ### P2 — Analysis quality
 
 **F6 · The "critical" gauges can never fire in this lab**
@@ -192,8 +200,19 @@ Some panels aggregate on `timestamp` (Wazuh *event* time) and others on `@timest
 1. **Before the next rebuild:** fix F1 (wildcard index name) and F2 (version 7.10.2), then re-run `scripts/validate-queries.js` to confirm nothing regressed.
 2. **Before the SharePoint hand-off:** run the portability test in [`RE-IMPORT-GUIDE.md`](RE-IMPORT-GUIDE.md) against a fresh Grafana and record the result in this document.
 3. **Quality pass:** F6, F7, F8, F9, F10, F11 — each is a small panel edit in the Grafana UI, then re-export with `scripts/export-dashboards.ps1` and commit the delta.
-4. **Hygiene:** F3, F12, F13.
-5. **Process:** F16 — SharePoint copy; F15 — record the Grafana-vs-OpenSearch-Dashboards decision in the workstream.
+4. **Portability of the links and overrides:** F17 (re-point the 22 drill-down URLs with `scripts/redact-links.js`) and F18 (replace the hardcoded per-host colour overrides with value mappings).
+5. **Hygiene:** F3, F12, F13.
+6. **Process:** F16 — SharePoint copy; F15 — record the Grafana-vs-OpenSearch-Dashboards decision in the workstream.
+
+### On data hygiene in this repository
+
+The dashboards themselves contain internal estate detail by nature — hostnames in colour overrides and a hardcoded drill-down origin. The repository is arranged so that:
+
+- **no credential** is ever written to disk (scripts read `GRAFANA_USER` / `GRAFANA_PASSWORD` from the environment; `.env` is git-ignored, `.env.example` has a blank password);
+- the **generated evidence** committed here is sanitised — telemetry IPs, agent names, Windows SIDs and the cluster UUID are replaced with placeholders, with the unsanitised copies kept locally in the git-ignored `export/raw/`;
+- the **import artefacts** (`dashboards/`, the bundle, `provisioning/`) stay byte-faithful, because rewriting them would silently change how the dashboards behave on import.
+
+See the *Security and data hygiene* section in [`../README.md`](../README.md).
 
 ---
 
@@ -211,12 +230,13 @@ All commands are **read-only** against Grafana and OpenSearch. No dashboard, dat
 Reproduce the whole thing:
 
 ```powershell
-$env:GRAFANA_USER='admin'; $env:GRAFANA_PASSWORD='<password>'
-.\scripts\export-dashboards.ps1 -GrafanaUrl 'http://192.168.3.55:3000'
+$env:GRAFANA_USER='<grafana-user>'; $env:GRAFANA_PASSWORD='<password>'
+.\scripts\export-dashboards.ps1
 node scripts\cluster-facts.js
 node scripts\validate-queries.js
 node scripts\audit-dashboards.js
 node scripts\build-catalog.js
 node scripts\build-bundle.js
 node scripts\build-provisioning.js
+node scripts\sanitize.js
 ```

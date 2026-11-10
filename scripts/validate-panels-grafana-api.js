@@ -25,7 +25,7 @@
  *
  * Usage:
  *   $env:GRAFANA_USER='admin'; $env:GRAFANA_PASSWORD='***'
- *   node scripts/validate-panels-grafana-api.js [--url http://192.168.3.55:3000]
+ *   node scripts/validate-panels-grafana-api.js [--url http://<grafana-host>:3000]
  */
 'use strict';
 
@@ -43,7 +43,7 @@ const argOf = (name, dflt) => {
   return i >= 0 && argv[i + 1] ? argv[i + 1] : dflt;
 };
 
-const URL_BASE = argOf('--url', process.env.GRAFANA_URL || 'http://192.168.3.55:3000');
+const URL_BASE = argOf('--url', process.env.GRAFANA_URL || 'http://localhost:3000');
 const USER = process.env.GRAFANA_USER;
 const PASS = process.env.GRAFANA_PASSWORD;
 const RANGE_H = parseInt(argOf('--range', '24'), 10);
@@ -221,9 +221,9 @@ function frameLabels(frame) {
   md.push('|---|---|---|---|---|');
   for (const r of results) {
     if (r.status === 'static') continue;
-    const mark = { data: '✅ data', empty: '⚠️ empty', error: '🔴 error' }[r.status];
+    const mark = { data: 'Ã¢Å“â€¦ data', empty: 'Ã¢Å¡Â Ã¯Â¸Â empty', error: 'Ã°Å¸â€Â´ error' }[r.status];
     const q = r.detail && r.detail.startsWith('query') ? r.detail.replace(/^query "/, '').replace(/"$/, '') : '';
-    md.push(`| ${r.dashboard} | ${r.panelTitle} (#${r.panelId}) | \`${q.replace(/\|/g, '\\|')}\` | ${r.rows ?? '—'} | ${mark} |`);
+    md.push(`| ${r.dashboard} | ${r.panelTitle} (#${r.panelId}) | \`${q.replace(/\|/g, '\\|')}\` | ${r.rows ?? 'Ã¢â‚¬â€'} | ${mark} |`);
   }
   md.push('');
   const empties = results.filter((r) => r.status === 'empty');
@@ -232,14 +232,14 @@ function frameLabels(frame) {
     md.push('');
     md.push('These render with no data over the default window. Either the window is too narrow, the rule/field has not fired yet, or the field is not decoded upstream.');
     md.push('');
-    for (const e of empties) md.push(`- **${e.dashboard} → ${e.panelTitle}** (panel ${e.panelId}) — \`${e.detail}\``);
+    for (const e of empties) md.push(`- **${e.dashboard} Ã¢â€ â€™ ${e.panelTitle}** (panel ${e.panelId}) Ã¢â‚¬â€ \`${e.detail}\``);
     md.push('');
   }
   const errs = results.filter((r) => r.status === 'error');
   if (errs.length) {
     md.push('## Errored panels');
     md.push('');
-    for (const e of errs) md.push(`- **${e.dashboard} → ${e.panelTitle}** (panel ${e.panelId}) — \`${e.detail}\``);
+    for (const e of errs) md.push(`- **${e.dashboard} Ã¢â€ â€™ ${e.panelTitle}** (panel ${e.panelId}) Ã¢â‚¬â€ \`${e.detail}\``);
     md.push('');
   }
   fs.mkdirSync(DOC_DIR, { recursive: true });

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T12:00:55.499Z",
+  "generatedAt": "2026-11-10T12:13:34.995Z",
   "source": "http://192.168.3.55:3000",
   "grafanaVersion": "13.2.2",
   "summary": {
@@ -9,8 +9,8 @@
     "datasourcesReferenced": 1,
     "datasourcesOnServer": 6,
     "errors": 0,
-    "warnings": 8,
-    "info": 27,
+    "warnings": 14,
+    "info": 31,
     "passes": 1
   },
   "dashboards": [
@@ -57,7 +57,9 @@
           "targets": [],
           "fields": [],
           "queryFields": [],
-          "hasStaticContent": true
+          "hasStaticContent": true,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 2,
@@ -103,7 +105,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Total Vulnerabilities",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:vulnerability-detector'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 3,
@@ -150,7 +159,14 @@
             "rule.groups",
             "data.vulnerability.severity"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Critical",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:vulnerability-detector%20AND%20data.vulnerability.severity:Critical'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 4,
@@ -197,7 +213,14 @@
             "rule.groups",
             "data.vulnerability.severity"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "High Vulnerabilities",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:vulnerability-detector%20AND%20data.vulnerability.severity:High'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 5,
@@ -244,7 +267,14 @@
             "rule.groups",
             "data.vulnerability.status"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Solved Vulnerabilities",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:vulnerability-detector%20AND%20data.vulnerability.status:Solved'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 6,
@@ -290,7 +320,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 7,
@@ -350,7 +382,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": [
+            "Critical",
+            "High",
+            "Medium",
+            "[object Object]"
+          ]
         },
         {
           "id": 8,
@@ -408,7 +447,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 9,
@@ -457,7 +498,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 10,
@@ -515,7 +558,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 11,
@@ -573,7 +618,12 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": [
+            "i686",
+            "x86_64"
+          ]
         }
       ],
       "fields": [
@@ -634,7 +684,9 @@
           "targets": [],
           "fields": [],
           "queryFields": [],
-          "hasStaticContent": true
+          "hasStaticContent": true,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 1,
@@ -680,7 +732,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "File Integrity",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:syscheck'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 2,
@@ -727,7 +786,14 @@
             "rule.groups",
             "rule.description"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Modified Files",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:syscheck%20AND%20rule.description:*modified*'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 3,
@@ -774,7 +840,14 @@
             "rule.groups",
             "rule.description"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Added Files",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:syscheck%20AND%20rule.description:*added*'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 4,
@@ -821,7 +894,14 @@
             "rule.groups",
             "rule.description"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Deleted Files",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:syscheck%20AND%20rule.description:*deleted*'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 5,
@@ -867,7 +947,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 6,
@@ -916,7 +998,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 7,
@@ -965,7 +1049,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 8,
@@ -1014,7 +1100,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": [
+            "<agent>",
+            "Windows-<agent>",
+            "<agent>",
+            "<agent>"
+          ]
         },
         {
           "id": 9,
@@ -1063,7 +1156,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 10,
@@ -1114,7 +1209,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         }
       ],
       "fields": [
@@ -1172,7 +1269,9 @@
           "targets": [],
           "fields": [],
           "queryFields": [],
-          "hasStaticContent": true
+          "hasStaticContent": true,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 1,
@@ -1218,7 +1317,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Configuration Checks",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:sca'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 2,
@@ -1265,7 +1371,14 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Passed Checks",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:sca%20AND%20data.sca.check.result:passed'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 3,
@@ -1312,7 +1425,14 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Failed Checks",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:sca%20AND%20data.sca.check.result:failed'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 4,
@@ -1361,7 +1481,14 @@
             "rule.groups",
             "data.sca.type"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Compliance Score",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:sca%20AND%20data.sca.type:summary'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 5,
@@ -1419,7 +1546,13 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": [
+            "passed",
+            "failed",
+            "not applicable"
+          ]
         },
         {
           "id": 6,
@@ -1478,7 +1611,9 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 8,
@@ -1537,7 +1672,9 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 7,
@@ -1596,7 +1733,9 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 9,
@@ -1643,7 +1782,9 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 10,
@@ -1701,7 +1842,15 @@
             "@timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": [
+            "Windows-<agent>",
+            "<agent>",
+            "<agent>",
+            "<agent>",
+            "<agent>"
+          ]
         },
         {
           "id": 11,
@@ -1760,7 +1909,9 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 12,
@@ -1812,7 +1963,9 @@
             "rule.groups",
             "data.sca.check.result"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         }
       ],
       "fields": [
@@ -1873,7 +2026,9 @@
           "targets": [],
           "fields": [],
           "queryFields": [],
-          "hasStaticContent": true
+          "hasStaticContent": true,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 1,
@@ -1917,7 +2072,14 @@
             "timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "View All Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 2,
@@ -1963,7 +2125,14 @@
           "queryFields": [
             "rule.level"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Critical Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:manager.name,negate:!f,params:<agent>,type:phrase,value:<agent>),query:(match_phrase:(manager.name:(query:<agent>)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:rule.level,negate:!f,params:(gte:15,lte:!n),type:range),range:(rule.level:(gte:15,lte:!n)))))&_q=(filters:!(),query:(language:kuery,query:''))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 3,
@@ -2009,7 +2178,14 @@
           "queryFields": [
             "rule.level"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "High Severity",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:manager.name,negate:!f,params:<agent>,type:phrase,value:<agent>),query:(match_phrase:(manager.name:(query:<agent>)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:rule.level,negate:!f,params:(gte:12,lte:14),type:range),range:(rule.level:(gte:12,lte:14)))))&_q=(filters:!(),query:(language:kuery,query:''))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 4,
@@ -2055,7 +2231,14 @@
           "queryFields": [
             "rule.level"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Medium Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:manager.name,negate:!f,params:<agent>,type:phrase,value:<agent>),query:(match_phrase:(manager.name:(query:<agent>)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'wazuh-alerts-*',key:rule.level,negate:!f,params:(gte:7,lte:11),type:range),range:(rule.level:(gte:7,lte:11)))))&_q=(filters:!(),query:(language:kuery,query:''))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 5,
@@ -2111,7 +2294,9 @@
             "@timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 6,
@@ -2223,7 +2408,9 @@
           "queryFields": [
             "rule.level"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 7,
@@ -2279,7 +2466,9 @@
             "timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 8,
@@ -2337,7 +2526,9 @@
             "timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 9,
@@ -2391,7 +2582,13 @@
             "rule.description"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": [
+            "rule.description",
+            "Count",
+            "Max"
+          ]
         },
         {
           "id": 10,
@@ -2440,7 +2637,9 @@
             "@timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         }
       ],
       "fields": [
@@ -2498,7 +2697,9 @@
           "targets": [],
           "fields": [],
           "queryFields": [],
-          "hasStaticContent": true
+          "hasStaticContent": true,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 1,
@@ -2544,7 +2745,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Brute Force",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:authentication_failed'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 2,
@@ -2590,7 +2798,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Invalid Login",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:invalid_login'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 3,
@@ -2636,7 +2851,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "High Severity Authentication Events",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'(rule.groups:authentication_failed%20OR%20rule.groups:invalid_login)%20AND%20rule.level%20%3E%3D%2010'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 4,
@@ -2683,7 +2905,14 @@
             "rule.groups",
             "data.srcip"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Authentication Failures with Source IP",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:authentication_failed%20AND%20data.srcip:*'))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 5,
@@ -2729,7 +2958,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 6,
@@ -2787,7 +3018,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 7,
@@ -2845,7 +3078,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 8,
@@ -2901,7 +3136,9 @@
             "@timestamp"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         }
       ],
       "fields": [
@@ -2958,7 +3195,9 @@
           "targets": [],
           "fields": [],
           "queryFields": [],
-          "hasStaticContent": true
+          "hasStaticContent": true,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 1,
@@ -3004,7 +3243,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "Total Suricata Alerts",
+              "url": "https://192.168.1.210:20443/app/data-explorer/discover#?_a=(discover:(columns:!(_source),isDirty:!f,sort:!()),metadata:(indexPattern:'wazuh-alerts-*',view:discover))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))&_q=(filters:!(),query:(language:kuery,query:'rule.groups:suricata'))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 2,
@@ -3051,7 +3297,9 @@
             "rule.groups",
             "rule.level"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 3,
@@ -3109,7 +3357,14 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [
+            {
+              "title": "MiTRE ATT&CK",
+              "url": "https://192.168.1.210:20443/app/mitre-attack#/overview/?tab=mitre&tabView=dashboard&_a=(filters:!(),query:(language:kuery,query:''))&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-24h,to:now))"
+            }
+          ],
+          "overrides": []
         },
         {
           "id": 4,
@@ -3155,7 +3410,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 5,
@@ -3204,7 +3461,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 7,
@@ -3251,7 +3510,9 @@
             "data.srcip"
           ],
           "queryFields": [],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 6,
@@ -3310,7 +3571,9 @@
             "rule.groups",
             "rule.mitre.id"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 8,
@@ -3370,7 +3633,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 10,
@@ -3428,7 +3693,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         },
         {
           "id": 11,
@@ -3479,7 +3746,9 @@
           "queryFields": [
             "rule.groups"
           ],
-          "hasStaticContent": false
+          "hasStaticContent": false,
+          "linkUrls": [],
+          "overrides": []
         }
       ],
       "fields": [
@@ -3527,10 +3796,52 @@
     },
     {
       "level": "warn",
+      "scope": "Vulnerabilities",
+      "title": "4 drill-down links point at a hardcoded host",
+      "detail": "All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.",
+      "fix": "Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js)."
+    },
+    {
+      "level": "warn",
+      "scope": "File Integrity",
+      "title": "4 drill-down links point at a hardcoded host",
+      "detail": "All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.",
+      "fix": "Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js)."
+    },
+    {
+      "level": "warn",
+      "scope": "Configuration Assessment",
+      "title": "4 drill-down links point at a hardcoded host",
+      "detail": "All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.",
+      "fix": "Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js)."
+    },
+    {
+      "level": "warn",
+      "scope": "SOC Overview",
+      "title": "4 drill-down links point at a hardcoded host",
+      "detail": "All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.",
+      "fix": "Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js)."
+    },
+    {
+      "level": "warn",
       "scope": "SOC Overview",
       "title": "No MITRE field referenced",
       "detail": "DoD requires the MITRE view to be populated from real alerts, but no panel queries a rule.mitre.* field.",
       "fix": "Add a terms aggregation on rule.mitre.id / rule.mitre.technique / rule.mitre.tactic."
+    },
+    {
+      "level": "warn",
+      "scope": "Brute Force & Active Response",
+      "title": "4 drill-down links point at a hardcoded host",
+      "detail": "All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.",
+      "fix": "Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js)."
+    },
+    {
+      "level": "warn",
+      "scope": "Threat Detection",
+      "title": "2 drill-down links point at a hardcoded host",
+      "detail": "All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.",
+      "fix": "Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js)."
     },
     {
       "level": "warn",
@@ -3625,6 +3936,13 @@
     },
     {
       "level": "info",
+      "scope": "Vulnerabilities",
+      "title": "6 hardcoded per-value colour overrides",
+      "detail": "Panels colour values by hardcoded name (Critical, High, Medium, [object Object], i686, x86_64). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.",
+      "fix": "Use a value mapping or a regex-based override instead of hardcoded names."
+    },
+    {
+      "level": "info",
       "scope": "File Integrity",
       "title": "No auto-refresh interval",
       "detail": "refresh is empty; panels only update on manual reload.",
@@ -3643,6 +3961,13 @@
       "title": "Dashboard lives in the General folder",
       "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
       "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "File Integrity",
+      "title": "4 hardcoded per-value colour overrides",
+      "detail": "Panels colour values by hardcoded name (<agent>, Windows-<agent>, <agent>, <agent>). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.",
+      "fix": "Use a value mapping or a regex-based override instead of hardcoded names."
     },
     {
       "level": "info",
@@ -3667,6 +3992,13 @@
     },
     {
       "level": "info",
+      "scope": "Configuration Assessment",
+      "title": "8 hardcoded per-value colour overrides",
+      "detail": "Panels colour values by hardcoded name (passed, failed, not applicable, Windows-<agent>, <agent>, <agent>, ...). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.",
+      "fix": "Use a value mapping or a regex-based override instead of hardcoded names."
+    },
+    {
+      "level": "info",
       "scope": "SOC Overview",
       "title": "No auto-refresh interval",
       "detail": "refresh is empty; panels only update on manual reload.",
@@ -3685,6 +4017,13 @@
       "title": "Dashboard lives in the General folder",
       "detail": "All six dashboards sit at the org root rather than a dedicated folder.",
       "fix": "Group them in a folder (e.g. \"SOC Detection Lab\") so they can be exported/imported as one unit."
+    },
+    {
+      "level": "info",
+      "scope": "SOC Overview",
+      "title": "3 hardcoded per-value colour overrides",
+      "detail": "Panels colour values by hardcoded name (rule.description, Count, Max). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.",
+      "fix": "Use a value mapping or a regex-based override instead of hardcoded names."
     },
     {
       "level": "info",

@@ -9,7 +9,7 @@
  *
  * Usage:
  *   $env:GRAFANA_USER='admin'; $env:GRAFANA_PASSWORD='***'
- *   node scripts/cluster-facts.js [--url http://192.168.3.55:3000]
+ *   node scripts/cluster-facts.js [--url http://<grafana-host>:3000]
  */
 'use strict';
 
@@ -23,7 +23,7 @@ const argOf = (n, d) => {
   const i = argv.indexOf(n);
   return i >= 0 && argv[i + 1] ? argv[i + 1] : d;
 };
-const URL_BASE = argOf('--url', process.env.GRAFANA_URL || 'http://192.168.3.55:3000');
+const URL_BASE = argOf('--url', process.env.GRAFANA_URL || 'http://localhost:3000');
 const USER = process.env.GRAFANA_USER;
 const PASS = process.env.GRAFANA_PASSWORD;
 if (!USER || !PASS) {

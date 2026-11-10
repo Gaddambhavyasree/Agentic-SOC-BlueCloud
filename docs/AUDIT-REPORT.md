@@ -2,9 +2,9 @@
 
 - **Source:** http://192.168.3.55:3000 (Grafana 13.2.2)
 - **Exported:** 2026-11-10T11:55:20.5087664Z
-- **Audited:** 2026-11-10T12:00:55.499Z
+- **Audited:** 2026-11-10T12:13:34.995Z
 - **Dashboards:** 6 | **Panels:** 66 (60 query-backed)
-- **Findings:** 0 error / 8 warn / 27 info / 1 pass
+- **Findings:** 0 error / 14 warn / 31 info / 1 pass
 
 ## Dashboard summary
 
@@ -46,6 +46,38 @@ grafana-opensearch-datasource (aftnm572lwhz4f), grafana-opensearch-datasource-1 
 
 **Remediation:** Consolidate to one datasource, or keep one canonical id per index pattern and re-point every panel at it so imports are deterministic.
 
+### 🟠 WARN — 4 drill-down links point at a hardcoded host
+
+**Scope:** Vulnerabilities
+
+All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.
+
+**Remediation:** Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).
+
+### 🟠 WARN — 4 drill-down links point at a hardcoded host
+
+**Scope:** File Integrity
+
+All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.
+
+**Remediation:** Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).
+
+### 🟠 WARN — 4 drill-down links point at a hardcoded host
+
+**Scope:** Configuration Assessment
+
+All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.
+
+**Remediation:** Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).
+
+### 🟠 WARN — 4 drill-down links point at a hardcoded host
+
+**Scope:** SOC Overview
+
+All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.
+
+**Remediation:** Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).
+
 ### 🟠 WARN — No MITRE field referenced
 
 **Scope:** SOC Overview
@@ -53,6 +85,22 @@ grafana-opensearch-datasource (aftnm572lwhz4f), grafana-opensearch-datasource-1 
 DoD requires the MITRE view to be populated from real alerts, but no panel queries a rule.mitre.* field.
 
 **Remediation:** Add a terms aggregation on rule.mitre.id / rule.mitre.technique / rule.mitre.tactic.
+
+### 🟠 WARN — 4 drill-down links point at a hardcoded host
+
+**Scope:** Brute Force & Active Response
+
+All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.
+
+**Remediation:** Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).
+
+### 🟠 WARN — 2 drill-down links point at a hardcoded host
+
+**Scope:** Threat Detection
+
+All panel links resolve to 192.168.1.210:20443 - an absolute URL baked into the panel definition, not to the Grafana instance that renders them. The links break on any other instance, and they are the reason the exported dashboard JSON carries internal addressing.
+
+**Remediation:** Either point the links at Grafana Explore (relative URL) or re-point them at the OpenSearch Dashboards base URL from configuration (see scripts/redact-links.js).
 
 ### 🟠 WARN — Datasource "Blue Cloud Dashboard" declares version 2.0.0, cluster is 7.10.2
 
@@ -158,6 +206,14 @@ All six dashboards sit at the org root rather than a dedicated folder.
 
 **Remediation:** Group them in a folder (e.g. "SOC Detection Lab") so they can be exported/imported as one unit.
 
+### 🔵 INFO — 6 hardcoded per-value colour overrides
+
+**Scope:** Vulnerabilities
+
+Panels colour values by hardcoded name (Critical, High, Medium, [object Object], i686, x86_64). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.
+
+**Remediation:** Use a value mapping or a regex-based override instead of hardcoded names.
+
 ### 🔵 INFO — No auto-refresh interval
 
 **Scope:** File Integrity
@@ -181,6 +237,14 @@ Untagged dashboards are harder to find via /api/search and harder to group in th
 All six dashboards sit at the org root rather than a dedicated folder.
 
 **Remediation:** Group them in a folder (e.g. "SOC Detection Lab") so they can be exported/imported as one unit.
+
+### 🔵 INFO — 4 hardcoded per-value colour overrides
+
+**Scope:** File Integrity
+
+Panels colour values by hardcoded name (<agent>, Windows-<agent>, <agent>, <agent>). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.
+
+**Remediation:** Use a value mapping or a regex-based override instead of hardcoded names.
 
 ### 🔵 INFO — No auto-refresh interval
 
@@ -206,6 +270,14 @@ All six dashboards sit at the org root rather than a dedicated folder.
 
 **Remediation:** Group them in a folder (e.g. "SOC Detection Lab") so they can be exported/imported as one unit.
 
+### 🔵 INFO — 8 hardcoded per-value colour overrides
+
+**Scope:** Configuration Assessment
+
+Panels colour values by hardcoded name (passed, failed, not applicable, Windows-<agent>, <agent>, <agent>, ...). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.
+
+**Remediation:** Use a value mapping or a regex-based override instead of hardcoded names.
+
 ### 🔵 INFO — No auto-refresh interval
 
 **Scope:** SOC Overview
@@ -229,6 +301,14 @@ Untagged dashboards are harder to find via /api/search and harder to group in th
 All six dashboards sit at the org root rather than a dedicated folder.
 
 **Remediation:** Group them in a folder (e.g. "SOC Detection Lab") so they can be exported/imported as one unit.
+
+### 🔵 INFO — 3 hardcoded per-value colour overrides
+
+**Scope:** SOC Overview
+
+Panels colour values by hardcoded name (rule.description, Count, Max). If a host is renamed or absent the override silently does nothing, and the exported JSON embeds estate hostnames.
+
+**Remediation:** Use a value mapping or a regex-based override instead of hardcoded names.
 
 ### 🔵 INFO — No auto-refresh interval
 
