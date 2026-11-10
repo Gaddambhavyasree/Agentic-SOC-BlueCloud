@@ -2,14 +2,15 @@
 
 Version-controlled export of the six purpose-built SOC dashboards for the Wazuh detection lab, plus the tooling and documentation to re-import them on a fresh Grafana.
 
-| | |
-|---|---|
-| **Source instance** | `http://192.168.3.55:3000` — Grafana **13.2.2** |
-| **Backing store** | OpenSearch cluster `wazuh-cluster`, version **7.10.2** (Lucene 9.12.3) |
-| **Data** | `wazuh-alerts-4.x-YYYY.MM.DD` — 44 daily indices, **13,886,589** alerts, live as of 2026-11-10 |
-| **Contents** | 6 dashboards · 66 panels · 63 query targets · 20 OpenSearch fields |
-| **Live validation** | **63/63 panel queries return data** (0 empty, 0 errors) |
-| **Last exported** | 2026-11-10 (dashboards last edited in Grafana on 2026-10-01) |
+|                     |                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| **Source instance** | `http://192.168.3.55:3000` — Grafana **13.2.2**                                                |
+| **TailScale**       | `http://100.126.218.97:3000`                                                                   |
+| **Backing store**   | OpenSearch cluster `wazuh-cluster`, version **7.10.2** (Lucene 9.12.3)                         |
+| **Data**            | `wazuh-alerts-4.x-YYYY.MM.DD` — 44 daily indices, **13,886,589** alerts, live as of 2026-11-10 |
+| **Contents**        | 6 dashboards · 66 panels · 63 query targets · 20 OpenSearch fields                             |
+| **Live validation** | **63/63 panel queries return data** (0 empty, 0 errors)                                        |
+| **Last exported**   | 2026-11-10 (dashboards last edited in Grafana on 2026-10-01)                                   |
 
 ---
 
